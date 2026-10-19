@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ConcesionariaWEBModelStoreContainer" CdmEntityContainer="ConcesionariaWEBEntities">
+    <EntitySetMapping Name="Bitacoras">
+      <EntityTypeMapping TypeName="ConcesionariaWEBModel.Bitacora">
+        <MappingFragment StoreEntitySet="Bitacora">
+          <ScalarProperty Name="id_bitacora" ColumnName="id_bitacora" />
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="accion" ColumnName="accion" />
+          <ScalarProperty Name="fecha_hora" ColumnName="fecha_hora" />
+          <ScalarProperty Name="entidad_afectada" ColumnName="entidad_afectada" />
+          <ScalarProperty Name="id_registro" ColumnName="id_registro" />
+          <ScalarProperty Name="valor_anterior" ColumnName="valor_anterior" />
+          <ScalarProperty Name="valor_nuevo" ColumnName="valor_nuevo" />
+          <ScalarProperty Name="id_empresa" ColumnName="id_empresa" />
+          <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Catalogo_EstadoVehiculo">
+      <EntityTypeMapping TypeName="ConcesionariaWEBModel.Catalogo_EstadoVehiculo">
+        <MappingFragment StoreEntitySet="Catalogo_EstadoVehiculo">
+          <ScalarProperty Name="id_estado" ColumnName="id_estado" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Catalogo_Marca">
+      <EntityTypeMapping TypeName="ConcesionariaWEBModel.Catalogo_Marca">
+        <MappingFragment StoreEntitySet="Catalogo_Marca">
+          <ScalarProperty Name="id_marca" ColumnName="id_marca" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Catalogo_TipoMantenimiento">
+      <EntityTypeMapping TypeName="ConcesionariaWEBModel.Catalogo_TipoMantenimiento">
+        <MappingFragment StoreEntitySet="Catalogo_TipoMantenimiento">
+          <ScalarProperty Name="id_tipo_mantenimiento" ColumnName="id_tipo_mantenimiento" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Catalogo_TipoVehiculo">
+      <EntityTypeMapping TypeName="ConcesionariaWEBModel.Catalogo_TipoVehiculo">
+        <MappingFragment StoreEntitySet="Catalogo_TipoVehiculo">
+          <ScalarProperty Name="id_tipo" ColumnName="id_tipo" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clientes">
+      <EntityTypeMapping TypeName="ConcesionariaWEBModel.Cliente">
+        <MappingFragment StoreEntitySet="Cliente">
+          <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="DPI" ColumnName="DPI" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="id_empresa" ColumnName="id_empresa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Consignantes">
+      <EntityTypeMapping TypeName="ConcesionariaWEBModel.Consignante">
+        <MappingFragment StoreEntitySet="Consignante">
+          <ScalarProperty Name="id_consignante" ColumnName="id_consignante" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="DPI" ColumnName="DPI" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="id_empresa" ColumnName="id_empresa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contratoes">
+      <EntityTypeMapping TypeName="ConcesionariaWEBModel.Contrato">
+        <MappingFragment StoreEntitySet="Contrato">
+          <ScalarProperty Name="id_contrato" ColumnName="id_contrato" />
+          <ScalarProperty Name="id_consignante" ColumnName="id_consignante" />
+          <ScalarProperty Name="precio_pactado" ColumnName="precio_pactado" />
+          <ScalarProperty Name="porcentaje_comision" ColumnName="porcentaje_comision" />
+          <ScalarProperty Name="fecha_inicio" ColumnName="fecha_inicio" />
+          <ScalarProperty Name="fecha_fin" ColumnName="fecha_fin" />
+          <ScalarProperty Name="id_empresa" ColumnName="id_empresa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Empresas">
+      <EntityTypeMapping TypeName="ConcesionariaWEBModel.Empresa">
+        <MappingFragment StoreEntitySet="Empresa">
+          <ScalarProperty Name="id_empresa" ColumnName="id_empresa" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="logotipo" ColumnName="logotipo" />
+          <ScalarProperty Name="moneda" ColumnName="moneda" />
+          <ScalarProperty Name="porcentaje_comision_default" ColumnName="porcentaje_comision_default" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Forma_Pago">
+      <EntityTypeMapping TypeName="ConcesionariaWEBModel.Forma_Pago">
+        <MappingFragment StoreEntitySet="Forma_Pago">
+          <ScalarProperty Name="id_forma_pago" ColumnName="id_forma_pago" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Liquidacions">
+      <EntityTypeMapping TypeName="ConcesionariaWEBModel.Liquidacion">
+        <MappingFragment StoreEntitySet="Liquidacion">
+          <ScalarProperty Name="id_liquidacion" ColumnName="id_liquidacion" />
+          <ScalarProperty Name="id_venta" ColumnName="id_venta" />
+          <ScalarProperty Name="monto_liquidado" ColumnName="monto_liquidado" />
+          <ScalarProperty Name="fecha_pago" ColumnName="fecha_pago" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="id_empresa" ColumnName="id_empresa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Mantenimientoes">
+      <EntityTypeMapping TypeName="ConcesionariaWEBModel.Mantenimiento">
+        <MappingFragment StoreEntitySet="Mantenimiento">
+          <ScalarProperty Name="id_mantenimiento" ColumnName="id_mantenimiento" />
+          <ScalarProperty Name="id_vehiculo" ColumnName="id_vehiculo" />
+          <ScalarProperty Name="placa_ingresada" ColumnName="placa_ingresada" />
+          <ScalarProperty Name="marca_modelo_ingresado" ColumnName="marca_modelo_ingresado" />
+          <ScalarProperty Name="propietario_nombre" ColumnName="propietario_nombre" />
+          <ScalarProperty Name="propietario_telefono" ColumnName="propietario_telefono" />
+          <ScalarProperty Name="id_tipo_mantenimiento" ColumnName="id_tipo_mantenimiento" />
+          <ScalarProperty Name="costo" ColumnName="costo" />
+          <ScalarProperty Name="id_taller" ColumnName="id_taller" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="observaciones" ColumnName="observaciones" />
+          <ScalarProperty Name="pagado" ColumnName="pagado" />
+          <ScalarProperty Name="id_forma_pago" ColumnName="id_forma_pago" />
+          <ScalarProperty Name="fecha_pago" ColumnName="fecha_pago" />
+          <ScalarProperty Name="id_usuario_cobro" ColumnName="id_usuario_cobro" />
+          <ScalarProperty Name="id_empresa" ColumnName="id_empresa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Permisoes">
+      <EntityTypeMapping TypeName="ConcesionariaWEBModel.Permiso">
+        <MappingFragment StoreEntitySet="Permiso">
+          <ScalarProperty Name="id_permiso" ColumnName="id_permiso" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reportes">
+      <EntityTypeMapping TypeName="ConcesionariaWEBModel.Reporte">
+        <MappingFragment StoreEntitySet="Reporte">
+          <ScalarProperty Name="id_reporte" ColumnName="id_reporte" />
+          <ScalarProperty Name="tipo_reporte" ColumnName="tipo_reporte" />
+          <ScalarProperty Name="fecha_generacion" ColumnName="fecha_generacion" />
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="id_empresa" ColumnName="id_empresa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rols">
+      <EntityTypeMapping TypeName="ConcesionariaWEBModel.Rol">
+        <MappingFragment StoreEntitySet="Rol">
+          <ScalarProperty Name="id_rol" ColumnName="id_rol" />
+          <ScalarProperty Name="nombre_rol" ColumnName="nombre_rol" />
+          <ScalarProperty Name="id_empresa" ColumnName="id_empresa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="ConcesionariaWEBModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tallers">
+      <EntityTypeMapping TypeName="ConcesionariaWEBModel.Taller">
+        <MappingFragment StoreEntitySet="Taller">
+          <ScalarProperty Name="id_taller" ColumnName="id_taller" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="id_empresa" ColumnName="id_empresa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuarios">
+      <EntityTypeMapping TypeName="ConcesionariaWEBModel.Usuario">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+          <ScalarProperty Name="contraseña" ColumnName="contraseña" />
+          <ScalarProperty Name="salt" ColumnName="salt" />
+          <ScalarProperty Name="id_rol" ColumnName="id_rol" />
+          <ScalarProperty Name="id_empresa" ColumnName="id_empresa" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vehiculoes">
+      <EntityTypeMapping TypeName="ConcesionariaWEBModel.Vehiculo">
+        <MappingFragment StoreEntitySet="Vehiculo">
+          <ScalarProperty Name="id_vehiculo" ColumnName="id_vehiculo" />
+          <ScalarProperty Name="id_tipo" ColumnName="id_tipo" />
+          <ScalarProperty Name="id_marca" ColumnName="id_marca" />
+          <ScalarProperty Name="modelo" ColumnName="modelo" />
+          <ScalarProperty Name="año" ColumnName="año" />
+          <ScalarProperty Name="placa" ColumnName="placa" />
+          <ScalarProperty Name="kilometraje" ColumnName="kilometraje" />
+          <ScalarProperty Name="id_estado" ColumnName="id_estado" />
+          <ScalarProperty Name="id_contrato" ColumnName="id_contrato" />
+          <ScalarProperty Name="id_empresa" ColumnName="id_empresa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VehiculoFotoes">
+      <EntityTypeMapping TypeName="ConcesionariaWEBModel.VehiculoFoto">
+        <MappingFragment StoreEntitySet="VehiculoFoto">
+          <ScalarProperty Name="id_foto" ColumnName="id_foto" />
+          <ScalarProperty Name="id_vehiculo" ColumnName="id_vehiculo" />
+          <ScalarProperty Name="ruta_archivo" ColumnName="ruta_archivo" />
+          <ScalarProperty Name="fecha_subida" ColumnName="fecha_subida" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ventas">
+      <EntityTypeMapping TypeName="ConcesionariaWEBModel.Venta">
+        <MappingFragment StoreEntitySet="Venta">
+          <ScalarProperty Name="id_venta" ColumnName="id_venta" />
+          <ScalarProperty Name="id_vehiculo" ColumnName="id_vehiculo" />
+          <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+          <ScalarProperty Name="precio_final" ColumnName="precio_final" />
+          <ScalarProperty Name="id_forma_pago" ColumnName="id_forma_pago" />
+          <ScalarProperty Name="comision" ColumnName="comision" />
+          <ScalarProperty Name="liquidacion_consignante" ColumnName="liquidacion_consignante" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="id_empresa" ColumnName="id_empresa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Rol_Permiso" TypeName="ConcesionariaWEBModel.Rol_Permiso" StoreEntitySet="Rol_Permiso">
+      <EndProperty Name="Permiso">
+        <ScalarProperty Name="id_permiso" ColumnName="id_permiso" />
+      </EndProperty>
+      <EndProperty Name="Rol">
+        <ScalarProperty Name="id_rol" ColumnName="id_rol" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,2 @@
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\obj\Debug\Carros Web.csproj.AssemblyReference.cache
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\obj\Debug\Carros Web.csproj.CoreCompileInputs.cache

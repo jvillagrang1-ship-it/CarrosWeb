@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b6566d22b50d497d9966fa0b3f56c817" Name="Diagram1" ZoomLevel="49">
+        <EntityTypeShape EntityType="ConcesionariaWEBModel.Bitacora" Width="1.5" PointX="3" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConcesionariaWEBModel.Catalogo_EstadoVehiculo" Width="1.5" PointX="8.25" PointY="22.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConcesionariaWEBModel.Catalogo_Marca" Width="1.5" PointX="8.25" PointY="25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConcesionariaWEBModel.Catalogo_TipoMantenimiento" Width="1.5" PointX="10.5" PointY="24.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConcesionariaWEBModel.Catalogo_TipoVehiculo" Width="1.5" PointX="8.25" PointY="27.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConcesionariaWEBModel.Cliente" Width="1.5" PointX="3" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConcesionariaWEBModel.Consignante" Width="1.5" PointX="3" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConcesionariaWEBModel.Contrato" Width="1.5" PointX="5.25" PointY="19" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConcesionariaWEBModel.Empresa" Width="1.5" PointX="0.75" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConcesionariaWEBModel.Forma_Pago" Width="1.5" PointX="3" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConcesionariaWEBModel.Liquidacion" Width="1.5" PointX="7.5" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConcesionariaWEBModel.Mantenimiento" Width="1.5" PointX="12.75" PointY="19.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConcesionariaWEBModel.Permiso" Width="1.5" PointX="5.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConcesionariaWEBModel.Reporte" Width="1.5" PointX="6" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConcesionariaWEBModel.Rol" Width="1.5" PointX="8" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConcesionariaWEBModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConcesionariaWEBModel.Taller" Width="1.5" PointX="3" PointY="28" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConcesionariaWEBModel.Usuario" Width="1.5" PointX="10.25" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConcesionariaWEBModel.Vehiculo" Width="1.5" PointX="10.5" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConcesionariaWEBModel.VehiculoFoto" Width="1.5" PointX="12.75" PointY="26" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConcesionariaWEBModel.Venta" Width="1.5" PointX="5.25" PointY="13.875" IsExpanded="true" />
+        <AssociationConnector Association="ConcesionariaWEBModel.FK__Bitacora__id_emp__17036CC0" ManuallyRouted="false" />
+        <AssociationConnector Association="ConcesionariaWEBModel.FK__Bitacora__id_usu__151B244E" ManuallyRouted="false" />
+        <AssociationConnector Association="ConcesionariaWEBModel.FK__Vehiculo__id_est__6B24EA82" ManuallyRouted="false" />
+        <AssociationConnector Association="ConcesionariaWEBModel.FK__Vehiculo__id_mar__6A30C649" ManuallyRouted="false" />
+        <AssociationConnector Association="ConcesionariaWEBModel.FK__Mantenimi__id_ti__7F2BE32F" ManuallyRouted="false" />
+        <AssociationConnector Association="ConcesionariaWEBModel.FK__Vehiculo__id_tip__693CA210" ManuallyRouted="false" />
+        <AssociationConnector Association="ConcesionariaWEBModel.FK__Cliente__id_empr__797309D9" ManuallyRouted="false" />
+        <AssociationConnector Association="ConcesionariaWEBModel.FK__Venta__id_client__08B54D69" ManuallyRouted="false" />
+        <AssociationConnector Association="ConcesionariaWEBModel.FK__Consignan__id_em__5BE2A6F2" ManuallyRouted="false" />
+        <AssociationConnector Association="ConcesionariaWEBModel.FK__Contrato__id_con__5EBF139D" ManuallyRouted="false" />
+        <AssociationConnector Association="ConcesionariaWEBModel.FK__Contrato__id_emp__5FB337D6" ManuallyRouted="false" />
+        <AssociationConnector Association="ConcesionariaWEBModel.FK__Vehiculo__id_con__6C190EBB" ManuallyRouted="false" />
+        <AssociationConnector Association="ConcesionariaWEBModel.FK__Liquidaci__id_em__0E6E26BF" ManuallyRouted="false" />
+        <AssociationConnector Association="ConcesionariaWEBModel.FK__Mantenimi__id_em__04E4BC85" ManuallyRouted="false" />
+        <AssociationConnector Association="ConcesionariaWEBModel.FK__Reporte__id_empr__123EB7A3" ManuallyRouted="false" />
+        <AssociationConnector Association="ConcesionariaWEBModel.FK__Rol__id_empresa__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="ConcesionariaWEBModel.FK__Taller__id_empre__75A278F5" ManuallyRouted="false" />
+        <AssociationConnector Association="ConcesionariaWEBModel.FK__Usuario__id_empr__571DF1D5" ManuallyRouted="false" />
+        <AssociationConnector Association="ConcesionariaWEBModel.FK__Vehiculo__id_emp__6D0D32F4" ManuallyRouted="false" />
+        <AssociationConnector Association="ConcesionariaWEBModel.FK__Venta__id_empres__0A9D95DB" ManuallyRouted="false" />
+        <AssociationConnector Association="ConcesionariaWEBModel.FK__Mantenimi__id_fo__02FC7413" ManuallyRouted="false" />
+        <AssociationConnector Association="ConcesionariaWEBModel.FK__Venta__id_forma___09A971A2" ManuallyRouted="false" />
+        <AssociationConnector Association="ConcesionariaWEBModel.FK__Liquidaci__id_ve__0D7A0286" ManuallyRouted="false" />
+        <AssociationConnector Association="ConcesionariaWEBModel.FK__Mantenimi__id_ta__00200768" ManuallyRouted="false" />
+        <AssociationConnector Association="ConcesionariaWEBModel.FK__Mantenimi__id_us__03F0984C" ManuallyRouted="false" />
+        <AssociationConnector Association="ConcesionariaWEBModel.FK__Mantenimi__id_ve__7E37BEF6" ManuallyRouted="false" />
+        <AssociationConnector Association="ConcesionariaWEBModel.FK__Reporte__id_usua__114A936A" ManuallyRouted="false" />
+        <AssociationConnector Association="ConcesionariaWEBModel.FK__Usuario__id_rol__5629CD9C" ManuallyRouted="false" />
+        <AssociationConnector Association="ConcesionariaWEBModel.FK__VehiculoF__id_ve__6FE99F9F" ManuallyRouted="false" />
+        <AssociationConnector Association="ConcesionariaWEBModel.FK__Venta__id_vehicu__07C12930" ManuallyRouted="false" />
+        <AssociationConnector Association="ConcesionariaWEBModel.Rol_Permiso" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
