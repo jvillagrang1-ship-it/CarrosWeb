@@ -1,40 +1,99 @@
-﻿<!DOCTYPE html>
-<html>
+﻿@using CarrosWeb.Infraestructura
+<!DOCTYPE html>
+<html lang="es">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewBag.Title - Concesionaria</title>
     @Styles.Render("~/Content/css")
+    <link href="@Url.Content("~/Content/Concesionaria.css?v=3")" rel="stylesheet" />
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
-        <div class="container">
-            @Html.ActionLink("Nombre de la aplicación", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Alternar navegación" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1">
-                    <li>@Html.ActionLink("Inicio", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Acerca de", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Contacto", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                </ul>
+    @if (SesionActual.HaIniciadoSesion)
+    {
+        <header class="barra-superior">
+            @Html.ActionLink("🚗 Concesionaria", "Index", "Home", new { area = "" }, new { @class = "barra-superior__marca", style = "text-decoration:none;color:inherit" })
+            <nav class="barra-superior__menu">
+                @if (SesionActual.TienePermiso("Vehiculos"))
+                {
+                    @Html.ActionLink("Catálogo", "Catalogo", "Vehiculos")
+                    <span class="barra-superior__separador">|</span>
+                    @Html.ActionLink("Vehículos", "Index", "Vehiculos")
+                }
+                @if (SesionActual.TienePermiso("Mantenimientos"))
+                {
+                    <span class="barra-superior__separador">|</span>
+                    @Html.ActionLink("Mantenimientos", "Index", "Mantenimientos")
+                }
+                @if (SesionActual.TienePermiso("Consignantes"))
+                {
+                    <span class="barra-superior__separador">|</span>
+                    @Html.ActionLink("Consignantes", "Index", "Consignantes")
+                }
+                @if (SesionActual.TienePermiso("Clientes"))
+                {
+                    <span class="barra-superior__separador">|</span>
+                    @Html.ActionLink("Clientes", "Index", "Clientes")
+                }
+                @if (SesionActual.TienePermiso("Ventas"))
+                {
+                    <span class="barra-superior__separador">|</span>
+                    @Html.ActionLink("Ventas", "Index", "Ventas")
+                }
+                @if (SesionActual.TienePermiso("Catalogos"))
+                {
+                    <span class="barra-superior__separador">|</span>
+                    @Html.ActionLink("Catálogos", "Index", "Catalogos")
+                }
+                @if (SesionActual.TienePermiso("Reportes"))
+                {
+                    <span class="barra-superior__separador">|</span>
+                    @Html.ActionLink("Reportes", "Inventario", "Reportes")
+                }
+                @if (SesionActual.TienePermiso("Usuarios"))
+                {
+                    <span class="barra-superior__separador">|</span>
+                    @Html.ActionLink("Usuarios", "Index", "Usuarios")
+                }
+                @if (SesionActual.TienePermiso("Bitacora"))
+                {
+                    <span class="barra-superior__separador">|</span>
+                    @Html.ActionLink("Bitácora", "Index", "Bitacora")
+                }
+                @if (SesionActual.TienePermiso("Empresa"))
+                {
+                    <span class="barra-superior__separador">|</span>
+                    @Html.ActionLink("Empresa", "Index", "Empresa")
+                }
+                @if (SesionActual.NombreRol == "Administrador")
+                {
+                    <span class="barra-superior__separador">|</span>
+                    @Html.ActionLink("Permisos", "Index", "Roles")
+                }
+            </nav>
+            <div class="barra-superior__usuario">
+                <span>@SesionActual.NombreUsuario (@SesionActual.NombreRol)</span>
+                @Html.ActionLink("Cerrar sesión", "Logout", "Cuenta", null, new { @class = "enlace-boton" })
             </div>
-        </div>
-    </nav>
-    <div class="container body-content">
+        </header>
+    }
+
+    <main class="contenido">
+        @if (TempData["MensajeExito"] != null)
+        {
+            <div class="alerta alerta--exito">@TempData["MensajeExito"]</div>
+        }
+        @if (TempData["MensajeError"] != null)
+        {
+            <div class="alerta alerta--error">@TempData["MensajeError"]</div>
+        }
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
-        </footer>
-    </div>
+    </main>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/site")
     @RenderSection("scripts", required: false)
 </body>
 </html>

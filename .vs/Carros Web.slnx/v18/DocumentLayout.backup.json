@@ -1,12 +1,58 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\AL3J4\\source\\repos\\Carros Web\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A8889CA6-249D-4A93-AF3C-387E6BE85167}|Carros Web\\Carros Web.csproj|c:\\users\\al3j4\\source\\repos\\carros web\\carros web\\app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A8889CA6-249D-4A93-AF3C-387E6BE85167}|Carros Web\\Carros Web.csproj|solutionrelative:carros web\\app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8889CA6-249D-4A93-AF3C-387E6BE85167}|Carros Web\\Carros Web.csproj|c:\\users\\al3j4\\source\\repos\\carros web\\carros web\\views\\cuenta\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A8889CA6-249D-4A93-AF3C-387E6BE85167}|Carros Web\\Carros Web.csproj|solutionrelative:carros web\\views\\cuenta\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "RouteConfig.cs",
+              "DocumentMoniker": "C:\\Users\\AL3J4\\source\\repos\\Carros Web\\Carros Web\\App_Start\\RouteConfig.cs",
+              "RelativeDocumentMoniker": "Carros Web\\App_Start\\RouteConfig.cs",
+              "ToolTip": "C:\\Users\\AL3J4\\source\\repos\\Carros Web\\Carros Web\\App_Start\\RouteConfig.cs",
+              "RelativeToolTip": "Carros Web\\App_Start\\RouteConfig.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-19T05:36:29.095Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\AL3J4\\source\\repos\\Carros Web\\Carros Web\\Views\\Cuenta\\Login.cshtml",
+              "RelativeDocumentMoniker": "Carros Web\\Views\\Cuenta\\Login.cshtml",
+              "ToolTip": "C:\\Users\\AL3J4\\source\\repos\\Carros Web\\Carros Web\\Views\\Cuenta\\Login.cshtml",
+              "RelativeToolTip": "Carros Web\\Views\\Cuenta\\Login.cshtml",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAAB0AAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-19T05:34:50.759Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

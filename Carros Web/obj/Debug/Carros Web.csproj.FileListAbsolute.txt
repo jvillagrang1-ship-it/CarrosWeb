@@ -1,2 +1,90 @@
 C:\Users\AL3J4\source\repos\Carros Web\Carros Web\obj\Debug\Carros Web.csproj.AssemblyReference.cache
 C:\Users\AL3J4\source\repos\Carros Web\Carros Web\obj\Debug\Carros Web.csproj.CoreCompileInputs.cache
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\Carros Web.dll.config
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\Carros Web.dll
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\Carros Web.pdb
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\roslyn\csc.exe
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\roslyn\csc.exe.config
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\roslyn\csc.rsp
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\roslyn\csi.exe
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\roslyn\csi.exe.config
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\roslyn\csi.rsp
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\roslyn\System.AppContext.dll
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\roslyn\System.Console.dll
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\roslyn\System.Globalization.Calendars.dll
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\roslyn\System.IO.Compression.dll
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\roslyn\System.Net.Http.dll
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\roslyn\System.Net.Sockets.dll
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\roslyn\System.ValueTuple.dll
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\roslyn\System.Xml.XPath.dll
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\roslyn\vbc.exe
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\roslyn\vbc.exe.config
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\roslyn\vbc.rsp
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\roslyn\VBCSCompiler.exe
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\Antlr3.Runtime.dll
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\EntityFramework.dll
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\EntityFramework.SqlServer.dll
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\Newtonsoft.Json.dll
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\System.Web.Helpers.dll
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\System.Web.Mvc.dll
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\System.Web.Optimization.dll
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\System.Web.Razor.dll
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\System.Web.WebPages.Deployment.dll
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\System.Web.WebPages.dll
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\System.Web.WebPages.Razor.dll
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\WebGrease.dll
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\EntityFramework.xml
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\EntityFramework.SqlServer.xml
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\System.Web.Helpers.xml
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\System.Web.Mvc.xml
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\System.Web.Optimization.xml
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\System.Web.Razor.xml
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\System.Web.WebPages.xml
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\System.Web.WebPages.Deployment.xml
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\System.Web.WebPages.Razor.xml
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\Newtonsoft.Json.xml
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\Antlr3.Runtime.pdb
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\es\System.Web.Helpers.resources.dll
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\es\System.Web.Mvc.resources.dll
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\es\System.Web.Optimization.resources.dll
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\es\System.Web.Razor.resources.dll
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\es\System.Web.WebPages.resources.dll
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\es\System.Web.WebPages.Deployment.resources.dll
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\bin\es\System.Web.WebPages.Razor.resources.dll
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\obj\Debug\Carros Web.csproj.Up2Date
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\obj\Debug\Carros Web.dll
+C:\Users\AL3J4\source\repos\Carros Web\Carros Web\obj\Debug\Carros Web.pdb
