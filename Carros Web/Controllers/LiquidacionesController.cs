@@ -1,16 +1,17 @@
-﻿using System;
+﻿using Carros_Web.Models;
+using CarrosWeb.Infraestructura;
+using CarrosWeb.Negocio;
+using System;
 using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
-using CarrosWeb.Infraestructura;
-using CarrosWeb.Negocio;
 
 namespace CarrosWeb.Controllers
 {
     [RequierePermiso("Ventas")]
     public class LiquidacionesController : Controller
     {
-        private Models.ConcesionariaWEBEntities db = new Models.ConcesionariaWEBEntities();
+        private ConcesionariaWEBEntities db = new ConcesionariaWEBEntities();
 
         // GET: Liquidaciones
         public ActionResult Index()

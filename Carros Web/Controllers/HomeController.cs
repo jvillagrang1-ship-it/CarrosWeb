@@ -1,30 +1,35 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Carros_Web.Models;
+using CarrosWeb.Infraestructura;
+using CarrosWeb.Models;
+using System.Data.Entity;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
-namespace Carros_Web.Controllers
+namespace CarrosWeb.Controllers
 {
+    [RequierePermiso]
     public class HomeController : Controller
     {
+        private ConcesionariaWEBEntities db = new ConcesionariaWEBEntities();
+
+        /// <summary>
+        /// El inicio del sistema es directamente el catálogo de vehículos
+        /// disponibles (la vitrina), no un menú de opciones: para eso ya
+        /// está la barra superior. Si el usuario no tiene permiso para ver
+        /// Vehículos, se le muestra una bienvenida simple en su lugar.
+        /// </summary>
         public ActionResult Index()
         {
-            return View();
+            if (!SesionActual.TienePermiso("Vehiculos"))
+                return View();
+
+            return View("~/Views/Vehiculos/Catalogo.cshtml", VehiculosController.ConsultarDisponibles(db));
         }
 
-        public ActionResult About()
+        protected override void Dispose(bool disposing)
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            if (disposing) db.Dispose();
+            base.Dispose(disposing);
         }
     }
 }
