@@ -3,11 +3,15 @@
   "WorkspaceRootPath": "C:\\Users\\AL3J4\\source\\repos\\Carros Web\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A8889CA6-249D-4A93-AF3C-387E6BE85167}|Carros Web\\Carros Web.csproj|c:\\users\\al3j4\\source\\repos\\carros web\\carros web\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A8889CA6-249D-4A93-AF3C-387E6BE85167}|Carros Web\\Carros Web.csproj|solutionrelative:carros web\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A8889CA6-249D-4A93-AF3C-387E6BE85167}|Carros Web\\Carros Web.csproj|c:\\users\\al3j4\\source\\repos\\carros web\\carros web\\app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A8889CA6-249D-4A93-AF3C-387E6BE85167}|Carros Web\\Carros Web.csproj|solutionrelative:carros web\\app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A8889CA6-249D-4A93-AF3C-387E6BE85167}|Carros Web\\Carros Web.csproj|c:\\users\\al3j4\\source\\repos\\carros web\\carros web\\views\\cuenta\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{A8889CA6-249D-4A93-AF3C-387E6BE85167}|Carros Web\\Carros Web.csproj|C:\\Users\\AL3J4\\source\\repos\\Carros Web\\carros web\\views\\cuenta\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{A8889CA6-249D-4A93-AF3C-387E6BE85167}|Carros Web\\Carros Web.csproj|solutionrelative:carros web\\views\\cuenta\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
@@ -27,6 +31,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\AL3J4\\source\\repos\\Carros Web\\Carros Web\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Carros Web\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\AL3J4\\source\\repos\\Carros Web\\Carros Web\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Carros Web\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-20T01:00:25.318Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "RouteConfig.cs",
               "DocumentMoniker": "C:\\Users\\AL3J4\\source\\repos\\Carros Web\\Carros Web\\App_Start\\RouteConfig.cs",
               "RelativeDocumentMoniker": "Carros Web\\App_Start\\RouteConfig.cs",
@@ -39,7 +56,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Login.cshtml",
               "DocumentMoniker": "C:\\Users\\AL3J4\\source\\repos\\Carros Web\\Carros Web\\Views\\Cuenta\\Login.cshtml",
               "RelativeDocumentMoniker": "Carros Web\\Views\\Cuenta\\Login.cshtml",
@@ -47,8 +64,7 @@
               "RelativeToolTip": "Carros Web\\Views\\Cuenta\\Login.cshtml",
               "ViewState": "AgIAABsAAAAAAAAAAAAAAB0AAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-10-19T05:34:50.759Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-19T05:34:50.759Z"
             }
           ]
         }

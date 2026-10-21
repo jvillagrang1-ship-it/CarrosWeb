@@ -130,6 +130,11 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BitacoraController.cs" />
+    <Compile Include="Controllers\CatalogosController.cs" />
+    <Compile Include="Controllers\Catalogo_EstadoVehiculoController.cs" />
+    <Compile Include="Controllers\Catalogo_MarcaController.cs" />
+    <Compile Include="Controllers\Catalogo_TipoMantenimientoController.cs" />
+    <Compile Include="Controllers\Catalogo_TipoVehiculoController.cs" />
     <Compile Include="Controllers\CuentaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
