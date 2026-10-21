@@ -135,7 +135,12 @@
     <Compile Include="Controllers\Catalogo_MarcaController.cs" />
     <Compile Include="Controllers\Catalogo_TipoMantenimientoController.cs" />
     <Compile Include="Controllers\Catalogo_TipoVehiculoController.cs" />
+    <Compile Include="Controllers\ClientesController.cs" />
+    <Compile Include="Controllers\ConsignantesController.cs" />
+    <Compile Include="Controllers\ContratosController.cs" />
     <Compile Include="Controllers\CuentaController.cs" />
+    <Compile Include="Controllers\EmpresaController.cs" />
+    <Compile Include="Controllers\Forma_PagoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
