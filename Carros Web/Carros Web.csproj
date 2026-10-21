@@ -142,6 +142,11 @@
     <Compile Include="Controllers\EmpresaController.cs" />
     <Compile Include="Controllers\Forma_PagoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LiquidacionesController.cs" />
+    <Compile Include="Controllers\MantenimientosController.cs" />
+    <Compile Include="Controllers\ReportesController.cs" />
+    <Compile Include="Controllers\RolesController.cs" />
+    <Compile Include="Controllers\TallersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
