@@ -1,4 +1,4 @@
-﻿@model IEnumerable<CarrosWeb.Models.Liquidacion>
+﻿@model IEnumerable<Carros_Web.Models.Liquidacion>
 @{
     ViewBag.Title = "Liquidaciones a consignantes";
 }
@@ -25,7 +25,7 @@
         </td>
         <td>@(item.fecha_pago?.ToString("dd/MM/yyyy"))</td>
         <td>
-            @if (item.estado == "Pendiente" && CarrosWeb.Infraestructura.SesionActual.NombreRol == "Administrador")
+            @if (item.estado == "Pendiente" && Carros_Web.Infraestructura.SesionActual.NombreRol == "Administrador")
             {
                 using (Html.BeginForm("MarcarPagada", "Liquidaciones", FormMethod.Post, new { @class = "d-inline" }))
                 {

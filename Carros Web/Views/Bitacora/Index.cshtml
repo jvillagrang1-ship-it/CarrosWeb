@@ -1,0 +1,62 @@
+﻿@using System
+@using System.Linq
+@model IEnumerable<Carros_Web.Models.Bitacora>
+@{
+    ViewBag.Title = "Bitácora";
+    string accionSel = (string)ViewBag.accion;
+    var acciones = new[] {
+        new { Valor = "LOGIN_EXITOSO", Texto = "Login exitoso" },
+        new { Valor = "LOGIN_FALLIDO", Texto = "Login fallido" },
+        new { Valor = "INSERT", Texto = "Insertar" },
+        new { Valor = "UPDATE", Texto = "Actualizar" },
+        new { Valor = "DELETE", Texto = "Eliminar" }
+    };
+}
+
+<h2 class="titulo-seccion">Bitácora de auditoría</h2>
+
+<form method="get" style="display:flex;gap:10px;align-items:end;flex-wrap:wrap;margin-bottom:16px">
+    <div>
+        <label style="font-size:13px;font-weight:600;color:#1b3a63;display:block">Usuario</label>
+        @Html.DropDownList("idUsuario", (SelectList)ViewBag.id_usuario, "Todos", new { style = "padding:8px;border-radius:8px;border:1px solid #d5dbe6" })
+    </div>
+    <div>
+        <label style="font-size:13px;font-weight:600;color:#1b3a63;display:block">Acción</label>
+        <select name="accion" style="padding:8px;border-radius:8px;border:1px solid #d5dbe6">
+            <option value="">Todas</option>
+            @foreach (var a in acciones)
+            {
+                <option value="@a.Valor" @(accionSel == a.Valor ? "selected" : "")>@a.Texto</option>
+            }
+        </select>
+    </div>
+    <div>
+        <label style="font-size:13px;font-weight:600;color:#1b3a63;display:block">Desde</label>
+        <input type="date" name="desde" value="@(ViewBag.desde == null ? "" : ((DateTime)ViewBag.desde).ToString("yyyy-MM-dd"))" style="padding:8px;border-radius:8px;border:1px solid #d5dbe6" />
+    </div>
+    <div>
+        <label style="font-size:13px;font-weight:600;color:#1b3a63;display:block">Hasta</label>
+        <input type="date" name="hasta" value="@(ViewBag.hasta == null ? "" : ((DateTime)ViewBag.hasta).ToString("yyyy-MM-dd"))" style="padding:8px;border-radius:8px;border:1px solid #d5dbe6" />
+    </div>
+    <button type="submit" class="boton boton--secundario" style="max-width:120px;padding:9px;margin-top:0">Filtrar</button>
+</form>
+
+<table class="tabla-datos">
+    <thead><tr><th>Fecha</th><th>Usuario</th><th>Acción</th><th>Tabla</th><th>Detalle</th></tr></thead>
+    <tbody>
+        @foreach (var b in Model)
+        {
+            <tr>
+                <td>@(b.fecha_hora?.ToString("dd/MM/yyyy"))</td>
+                <td>@(b.Usuario?.nombre)</td>
+                <td>@b.accion</td>
+                <td>@b.entidad_afectada</td>
+                <td>@b.valor_nuevo</td>
+            </tr>
+        }
+        @if (!Model.Any())
+        {
+            <tr><td colspan="5" class="texto-tenue">No hay registros con esos filtros.</td></tr>
+        }
+    </tbody>
+</table>

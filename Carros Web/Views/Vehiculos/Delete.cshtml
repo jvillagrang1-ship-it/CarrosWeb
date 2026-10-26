@@ -1,0 +1,24 @@
+﻿@model Carros_Web.Models.Vehiculo
+@{
+    ViewBag.Title = "Eliminar vehículo";
+}
+
+<h2>¿Eliminar este vehículo?</h2>
+
+<div class="alert alert-warning">
+    <dl class="row mb-0">
+        <dt class="col-sm-3">Placa</dt>
+        <dd class="col-sm-9">@Model.placa</dd>
+        <dt class="col-sm-3">Modelo</dt>
+        <dd class="col-sm-9">@Model.modelo</dd>
+        <dt class="col-sm-3">Marca</dt>
+        <dd class="col-sm-9">@(Model.Catalogo_Marca?.descripcion)</dd>
+    </dl>
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <input type="submit" value="Eliminar" class="btn btn-danger" />
+    @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-outline-secondary" })
+}

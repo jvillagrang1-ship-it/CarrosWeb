@@ -1,8 +1,8 @@
 ﻿@using System.Linq
-@model IEnumerable<CarrosWeb.Models.Liquidacion>
+@model IEnumerable<Carros_Web.Models.Liquidacion>
 @{
     ViewBag.Title = "Liquidaciones pendientes";
-    bool esAdmin = CarrosWeb.Infraestructura.SesionActual.NombreRol == "Administrador";
+    bool esAdmin = Carros_Web.Infraestructura.SesionActual.NombreRol == "Administrador";
 }
 
 @Html.Partial("_TabsReportes")
