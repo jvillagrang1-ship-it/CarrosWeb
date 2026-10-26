@@ -1,0 +1,193 @@
+﻿@using System
+@using System.Collections.Generic
+@{
+    ViewBag.Title = "Catálogos";
+    bool esAdmin = CarrosWeb.Infraestructura.SesionActual.NombreRol == "Administrador";
+}
+
+<h2 class="titulo-seccion">Catálogos</h2>
+<p class="texto-tenue">Estos valores alimentan los formularios de todo el sistema; nada queda escrito directamente en el código.</p>
+
+<div class="rejilla-catalogos">
+
+    <div class="panel" style="max-width:100%;margin-top:0">
+        <h3 class="panel__titulo">Tipos de vehículo</h3>
+        <table class="tabla-datos" style="margin-top:0">
+            <tbody>
+                @foreach (var item in (List<Tuple<int, string>>)ViewBag.TiposVehiculo)
+                {
+                    <tr>
+                        <td>@item.Item2</td>
+                        <td style="text-align:right">
+                            @if (esAdmin)
+                            {
+                                using (Html.BeginForm("Eliminar", "Catalogos", FormMethod.Post, new { style = "display:inline" }))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <input type="hidden" name="clave" value="tipovehiculo" />
+                                    <input type="hidden" name="id" value="@item.Item1" />
+                                    <button class="boton-chico eliminar" onclick="return confirm('¿Eliminar este valor?');">Eliminar</button>
+                                }
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        @if (esAdmin)
+        {
+            using (Html.BeginForm("Crear", "Catalogos", FormMethod.Post, new { style = "margin-top:12px;display:flex;gap:6px" }))
+            {
+                @Html.AntiForgeryToken()
+                <input type="hidden" name="clave" value="tipovehiculo" />
+                <input type="text" name="descripcion" placeholder="Nuevo tipo..." required style="flex:1;padding:8px;border-radius:6px;border:1px solid #d5dbe6;max-width:none" />
+                <button class="boton-chico agregar">Agregar</button>
+            }
+        }
+    </div>
+
+    <div class="panel" style="max-width:100%;margin-top:0">
+        <h3 class="panel__titulo">Marcas</h3>
+        <table class="tabla-datos" style="margin-top:0">
+            <tbody>
+                @foreach (var item in (List<Tuple<int, string>>)ViewBag.Marcas)
+                {
+                    <tr>
+                        <td>@item.Item2</td>
+                        <td style="text-align:right">
+                            @if (esAdmin)
+                            {
+                                using (Html.BeginForm("Eliminar", "Catalogos", FormMethod.Post, new { style = "display:inline" }))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <input type="hidden" name="clave" value="marca" />
+                                    <input type="hidden" name="id" value="@item.Item1" />
+                                    <button class="boton-chico eliminar" onclick="return confirm('¿Eliminar este valor?');">Eliminar</button>
+                                }
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        @if (esAdmin)
+        {
+            using (Html.BeginForm("Crear", "Catalogos", FormMethod.Post, new { style = "margin-top:12px;display:flex;gap:6px" }))
+            {
+                @Html.AntiForgeryToken()
+                <input type="hidden" name="clave" value="marca" />
+                <input type="text" name="descripcion" placeholder="Nueva marca..." required style="flex:1;padding:8px;border-radius:6px;border:1px solid #d5dbe6;max-width:none" />
+                <button class="boton-chico agregar">Agregar</button>
+            }
+        }
+    </div>
+
+    <div class="panel" style="max-width:100%;margin-top:0">
+        <h3 class="panel__titulo">Tipos de mantenimiento</h3>
+        <table class="tabla-datos" style="margin-top:0">
+            <tbody>
+                @foreach (var item in (List<Tuple<int, string>>)ViewBag.TiposMantenimiento)
+                {
+                    <tr>
+                        <td>@item.Item2</td>
+                        <td style="text-align:right">
+                            @if (esAdmin)
+                            {
+                                using (Html.BeginForm("Eliminar", "Catalogos", FormMethod.Post, new { style = "display:inline" }))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <input type="hidden" name="clave" value="tipomantenimiento" />
+                                    <input type="hidden" name="id" value="@item.Item1" />
+                                    <button class="boton-chico eliminar" onclick="return confirm('¿Eliminar este valor?');">Eliminar</button>
+                                }
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        @if (esAdmin)
+        {
+            using (Html.BeginForm("Crear", "Catalogos", FormMethod.Post, new { style = "margin-top:12px;display:flex;gap:6px" }))
+            {
+                @Html.AntiForgeryToken()
+                <input type="hidden" name="clave" value="tipomantenimiento" />
+                <input type="text" name="descripcion" placeholder="Nuevo tipo..." required style="flex:1;padding:8px;border-radius:6px;border:1px solid #d5dbe6;max-width:none" />
+                <button class="boton-chico agregar">Agregar</button>
+            }
+        }
+    </div>
+
+    <div class="panel" style="max-width:100%;margin-top:0">
+        <h3 class="panel__titulo">Estados de vehículo</h3>
+        <table class="tabla-datos" style="margin-top:0">
+            <tbody>
+                @foreach (var item in (List<Tuple<int, string>>)ViewBag.Estados)
+                {
+                    <tr>
+                        <td>@item.Item2</td>
+                        <td style="text-align:right">
+                            @if (esAdmin)
+                            {
+                                using (Html.BeginForm("Eliminar", "Catalogos", FormMethod.Post, new { style = "display:inline" }))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <input type="hidden" name="clave" value="estado" />
+                                    <input type="hidden" name="id" value="@item.Item1" />
+                                    <button class="boton-chico eliminar" onclick="return confirm('¿Eliminar este valor?');">Eliminar</button>
+                                }
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        @if (esAdmin)
+        {
+            using (Html.BeginForm("Crear", "Catalogos", FormMethod.Post, new { style = "margin-top:12px;display:flex;gap:6px" }))
+            {
+                @Html.AntiForgeryToken()
+                <input type="hidden" name="clave" value="estado" />
+                <input type="text" name="descripcion" placeholder="Nuevo estado..." required style="flex:1;padding:8px;border-radius:6px;border:1px solid #d5dbe6;max-width:none" />
+                <button class="boton-chico agregar">Agregar</button>
+            }
+        }
+    </div>
+
+    <div class="panel" style="max-width:100%;margin-top:0">
+        <h3 class="panel__titulo">Formas de pago</h3>
+        <table class="tabla-datos" style="margin-top:0">
+            <tbody>
+                @foreach (var item in (List<Tuple<int, string>>)ViewBag.FormasPago)
+                {
+                    <tr>
+                        <td>@item.Item2</td>
+                        <td style="text-align:right">
+                            @if (esAdmin)
+                            {
+                                using (Html.BeginForm("Eliminar", "Catalogos", FormMethod.Post, new { style = "display:inline" }))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <input type="hidden" name="clave" value="formapago" />
+                                    <input type="hidden" name="id" value="@item.Item1" />
+                                    <button class="boton-chico eliminar" onclick="return confirm('¿Eliminar este valor?');">Eliminar</button>
+                                }
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        @if (esAdmin)
+        {
+            using (Html.BeginForm("Crear", "Catalogos", FormMethod.Post, new { style = "margin-top:12px;display:flex;gap:6px" }))
+            {
+                @Html.AntiForgeryToken()
+                <input type="hidden" name="clave" value="formapago" />
+                <input type="text" name="descripcion" placeholder="Nueva forma de pago..." required style="flex:1;padding:8px;border-radius:6px;border:1px solid #d5dbe6;max-width:none" />
+                <button class="boton-chico agregar">Agregar</button>
+            }
+        }
+    </div>
+
+</div>

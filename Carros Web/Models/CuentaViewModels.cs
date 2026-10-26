@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace CarrosWeb.Models
+namespace Carros_Web.Models
 {
     public class LoginViewModel
     {

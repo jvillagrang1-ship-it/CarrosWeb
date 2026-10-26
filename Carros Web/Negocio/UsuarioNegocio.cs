@@ -1,10 +1,9 @@
 ﻿using Carros_Web.Models;
-using CarrosWeb.Models;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 
-namespace CarrosWeb.Negocio
+namespace Carros_Web.Negocio
 {
     public class ResultadoLogin
     {

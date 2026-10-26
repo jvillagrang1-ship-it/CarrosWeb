@@ -2,7 +2,7 @@
 using System.Security.Cryptography;
 using System.Text;
 
-namespace CarrosWeb.Negocio
+namespace Carros_Web.Negocio
 {
     public static class SeguridadHelper
     {

@@ -153,8 +153,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="infraestructura\RequierePermisoAttribute.cs" />
-    <Compile Include="infraestructura\SesionActual.cs" />
+    <Compile Include="Infraestructura\RequierePermisoAttribute.cs" />
+    <Compile Include="Infraestructura\SesionActual.cs" />
     <Compile Include="Models\Bitacora.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -309,6 +309,27 @@
     <Content Include="Views\Cuenta\AccesoDenegado.cshtml" />
     <Content Include="Views\Cuenta\CrearAdminInicial.cshtml" />
     <Content Include="Views\Cuenta\Login.cshtml" />
+    <Content Include="Views\Catalogo_EstadoVehiculo\Create.cshtml" />
+    <Content Include="Views\Catalogo_EstadoVehiculo\Delete.cshtml" />
+    <Content Include="Views\Catalogo_EstadoVehiculo\Details.cshtml" />
+    <Content Include="Views\Catalogo_EstadoVehiculo\Edit.cshtml" />
+    <Content Include="Views\Catalogo_EstadoVehiculo\Index.cshtml" />
+    <Content Include="Views\Catalogo_Marca\Create.cshtml" />
+    <Content Include="Views\Catalogo_Marca\Delete.cshtml" />
+    <Content Include="Views\Catalogo_Marca\Details.cshtml" />
+    <Content Include="Views\Catalogo_Marca\Edit.cshtml" />
+    <Content Include="Views\Catalogo_Marca\Index.cshtml" />
+    <Content Include="Views\Catalogo_TipoMantenimiento\Create.cshtml" />
+    <Content Include="Views\Catalogo_TipoMantenimiento\Delete.cshtml" />
+    <Content Include="Views\Catalogo_TipoMantenimiento\Details.cshtml" />
+    <Content Include="Views\Catalogo_TipoMantenimiento\Edit.cshtml" />
+    <Content Include="Views\Catalogo_TipoMantenimiento\Index.cshtml" />
+    <Content Include="Views\Catalogo_TipoVehiculo\Create.cshtml" />
+    <Content Include="Views\Catalogo_TipoVehiculo\Delete.cshtml" />
+    <Content Include="Views\Catalogo_TipoVehiculo\Details.cshtml" />
+    <Content Include="Views\Catalogo_TipoVehiculo\Edit.cshtml" />
+    <Content Include="Views\Catalogo_TipoVehiculo\Index.cshtml" />
+    <Content Include="Views\Catalogos\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

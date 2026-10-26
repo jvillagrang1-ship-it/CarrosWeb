@@ -1,8 +1,7 @@
 ﻿using Carros_Web.Models;
-using CarrosWeb.Models;
 using System;
 
-namespace CarrosWeb.Negocio
+namespace Carros_Web.Negocio
 {
     public class BitacoraNegocio
     {

@@ -1,7 +1,7 @@
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace CarrosWeb.Infraestructura
+namespace Carros_Web.Infraestructura
 {
     /// <summary>
     /// Filtro de autorización basado en Session (en vez de cookies/claims):
