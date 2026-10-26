@@ -1,0 +1,20 @@
+﻿@model Carros_Web.Models.Usuario
+@{
+    ViewBag.Title = "Cambiar contraseña";
+}
+
+<h2>Cambiar contraseña — @Model.nombre</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <input type="hidden" name="id" value="@Model.id_usuario" />
+    <div class="form-group">
+        <label>Nueva contraseña</label>
+        <input type="password" name="nuevaContrasena" class="form-control" required minlength="4" />
+    </div>
+    <div class="form-group mt-3">
+        <input type="submit" value="Guardar" class="btn btn-primary" />
+        @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-outline-secondary" })
+    </div>
+}

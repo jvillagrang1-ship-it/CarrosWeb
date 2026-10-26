@@ -1,0 +1,38 @@
+﻿@using System.Linq
+@model IEnumerable<Carros_Web.Models.Venta>
+@{
+    ViewBag.Title = "Ventas";
+}
+
+<div class="barra-acciones">
+    <h2 class="titulo-seccion">Ventas</h2>
+    <div>
+        @Html.ActionLink("Liquidaciones", "Index", "Liquidaciones", null, new { @class = "enlace-fila" })
+        @Html.ActionLink("+ Registrar venta", "Create", null, new { @class = "boton boton--primario", style = "display:inline-block;text-decoration:none;text-align:center" })
+    </div>
+</div>
+
+<table class="tabla-datos">
+    <thead><tr><th>Fecha</th><th>Vehículo</th><th>Cliente</th><th>Precio</th><th>Comisión</th><th>Liquidación</th><th></th></tr></thead>
+    <tbody>
+        @foreach (var v in Model)
+        {
+            <tr>
+                <td>@v.fecha.ToString("dd/MM/yyyy")</td>
+                <td>@(v.Vehiculo?.placa) — @(v.Vehiculo?.modelo)</td>
+                <td>@(v.Cliente?.nombre)</td>
+                <td>Q @v.precio_final.ToString("N2")</td>
+                <td>Q @v.comision.ToString("N2")</td>
+                <td>Q @v.liquidacion_consignante.ToString("N2")</td>
+                <td style="white-space:nowrap">
+                    @Html.ActionLink("Comprobante", "Comprobante", new { id = v.id_venta }, new { @class = "enlace-fila" })
+                    @Html.ActionLink("Detalle", "Details", new { id = v.id_venta }, new { @class = "enlace-fila" })
+                </td>
+            </tr>
+        }
+        @if (!Model.Any())
+        {
+            <tr><td colspan="7" class="texto-tenue">Todavía no hay ventas registradas.</td></tr>
+        }
+    </tbody>
+</table>

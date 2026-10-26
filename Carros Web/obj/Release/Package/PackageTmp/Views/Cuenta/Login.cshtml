@@ -1,0 +1,53 @@
+﻿@using System.Linq
+@model Carros_Web.Models.LoginViewModel
+@{
+    ViewBag.Title = "Iniciar sesión";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Iniciar sesión - Concesionaria</title>
+    <link href="@Url.Content("~/Content/Concesionaria.css?v=3")" rel="stylesheet" />
+</head>
+<body class="pantalla-login">
+    <div class="tarjeta-login">
+        <h1 class="tarjeta-login__titulo">🚗 Concesionaria</h1>
+        <p class="tarjeta-login__subtitulo">Sistema de venta de vehículos a consignación</p>
+
+        @if (TempData["MensajeExito"] != null)
+        {
+            <div class="alerta alerta--exito">@TempData["MensajeExito"]</div>
+        }
+        @if (!ViewData.ModelState.IsValid)
+        {
+            <div class="alerta alerta--error">
+                @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                {
+                    <div>@error.ErrorMessage</div>
+                }
+            </div>
+        }
+
+        @using (Html.BeginForm("Login", "Cuenta", FormMethod.Post, new { @class = "formulario" }))
+        {
+            @Html.AntiForgeryToken()
+            <label for="Correo">Correo (usuario)</label>
+            @Html.TextBoxFor(m => m.Correo, new { placeholder = "usuario@correo.com", autofocus = "autofocus", autocomplete = "username" })
+
+            <label for="Contrasena">Contraseña</label>
+            <div class="campo-contrasena">
+                @Html.PasswordFor(m => m.Contrasena, new { placeholder = "••••••••", autocomplete = "current-password" })
+                <button type="button" class="campo-contrasena__boton" onclick="alternarContrasena('Contrasena', this)" aria-label="Mostrar contraseña">👁️</button>
+            </div>
+
+            <button type="submit" class="boton boton--primario">Ingresar</button>
+        }
+
+        @Html.ActionLink("Primer uso: crear usuario administrador", "CrearAdminInicial", "Cuenta", null, new { @class = "enlace-secundario" })
+    </div>
+    <script src="@Url.Content("~/Scripts/site.js")"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+﻿@model Carros_Web.Models.Contrato
+@{
+    ViewBag.Title = "Eliminar contrato";
+}
+
+<h2>¿Eliminar este contrato?</h2>
+
+<div class="alert alert-warning">
+    <dl class="row mb-0">
+        <dt class="col-sm-3">Consignante</dt>
+        <dd class="col-sm-9">@(Model.Consignante?.nombre)</dd>
+        <dt class="col-sm-3">Precio pactado</dt>
+        <dd class="col-sm-9">@Model.precio_pactado.ToString("N2")</dd>
+        <dt class="col-sm-3">Vigencia</dt>
+        <dd class="col-sm-9">@Model.fecha_inicio.ToString("dd/MM/yyyy") — @Model.fecha_fin.ToString("dd/MM/yyyy")</dd>
+    </dl>
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <input type="submit" value="Eliminar" class="btn btn-danger" />
+    @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-outline-secondary" })
+}

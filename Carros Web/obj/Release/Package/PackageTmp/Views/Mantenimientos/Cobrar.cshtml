@@ -1,0 +1,22 @@
+﻿@model Carros_Web.Models.Mantenimiento
+@{
+    ViewBag.Title = "Registrar cobro";
+}
+
+<h2>Registrar cobro — Mantenimiento #@Model.id_mantenimiento</h2>
+
+<p>Costo: <strong>@(Model.costo?.ToString("N2"))</strong></p>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <input type="hidden" name="id" value="@Model.id_mantenimiento" />
+    <div class="form-group">
+        <label>Forma de pago</label>
+        @Html.DropDownList("idFormaPago", (SelectList)ViewBag.id_forma_pago, "-- Seleccione --", new { @class = "form-control" })
+    </div>
+    <div class="form-group mt-3">
+        <input type="submit" value="Confirmar cobro" class="btn btn-success" />
+        @Html.ActionLink("Cancelar", "Details", new { id = Model.id_mantenimiento }, new { @class = "btn btn-outline-secondary" })
+    </div>
+}

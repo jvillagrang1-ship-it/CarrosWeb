@@ -1,0 +1,99 @@
+﻿@using Carros_Web.Infraestructura
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewBag.Title - Concesionaria</title>
+    @Styles.Render("~/Content/css")
+    <link href="@Url.Content("~/Content/Concesionaria.css?v=3")" rel="stylesheet" />
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    @if (SesionActual.HaIniciadoSesion)
+    {
+        <header class="barra-superior">
+            @Html.ActionLink("🚗 Concesionaria", "Index", "Home", new { area = "" }, new { @class = "barra-superior__marca", style = "text-decoration:none;color:inherit" })
+            <nav class="barra-superior__menu">
+                @if (SesionActual.TienePermiso("Vehiculos"))
+                {
+                    @Html.ActionLink("Catálogo", "Catalogo", "Vehiculos")
+                    <span class="barra-superior__separador">|</span>
+                    @Html.ActionLink("Vehículos", "Index", "Vehiculos")
+                }
+                @if (SesionActual.TienePermiso("Mantenimientos"))
+                {
+                    <span class="barra-superior__separador">|</span>
+                    @Html.ActionLink("Mantenimientos", "Index", "Mantenimientos")
+                }
+                @if (SesionActual.TienePermiso("Consignantes"))
+                {
+                    <span class="barra-superior__separador">|</span>
+                    @Html.ActionLink("Consignantes", "Index", "Consignantes")
+                }
+                @if (SesionActual.TienePermiso("Clientes"))
+                {
+                    <span class="barra-superior__separador">|</span>
+                    @Html.ActionLink("Clientes", "Index", "Clientes")
+                }
+                @if (SesionActual.TienePermiso("Ventas"))
+                {
+                    <span class="barra-superior__separador">|</span>
+                    @Html.ActionLink("Ventas", "Index", "Ventas")
+                }
+                @if (SesionActual.TienePermiso("Catalogos"))
+                {
+                    <span class="barra-superior__separador">|</span>
+                    @Html.ActionLink("Catálogos", "Index", "Catalogos")
+                }
+                @if (SesionActual.TienePermiso("Reportes"))
+                {
+                    <span class="barra-superior__separador">|</span>
+                    @Html.ActionLink("Reportes", "Inventario", "Reportes")
+                }
+                @if (SesionActual.TienePermiso("Usuarios"))
+                {
+                    <span class="barra-superior__separador">|</span>
+                    @Html.ActionLink("Usuarios", "Index", "Usuarios")
+                }
+                @if (SesionActual.TienePermiso("Bitacora"))
+                {
+                    <span class="barra-superior__separador">|</span>
+                    @Html.ActionLink("Bitácora", "Index", "Bitacora")
+                }
+                @if (SesionActual.TienePermiso("Empresa"))
+                {
+                    <span class="barra-superior__separador">|</span>
+                    @Html.ActionLink("Empresa", "Index", "Empresa")
+                }
+                @if (SesionActual.NombreRol == "Administrador")
+                {
+                    <span class="barra-superior__separador">|</span>
+                    @Html.ActionLink("Permisos", "Index", "Roles")
+                }
+            </nav>
+            <div class="barra-superior__usuario">
+                <span>@SesionActual.NombreUsuario (@SesionActual.NombreRol)</span>
+                @Html.ActionLink("Cerrar sesión", "Logout", "Cuenta", null, new { @class = "enlace-boton" })
+            </div>
+        </header>
+    }
+
+    <main class="contenido">
+        @if (TempData["MensajeExito"] != null)
+        {
+            <div class="alerta alerta--exito">@TempData["MensajeExito"]</div>
+        }
+        @if (TempData["MensajeError"] != null)
+        {
+            <div class="alerta alerta--error">@TempData["MensajeError"]</div>
+        }
+        @RenderBody()
+    </main>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/site")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

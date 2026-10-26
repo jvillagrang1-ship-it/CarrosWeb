@@ -1,0 +1,63 @@
+﻿@using System.Linq
+@model IEnumerable<Carros_Web.Models.Vehiculo>
+@{
+    ViewBag.Title = "Vehículos";
+    string estadoSel = (string)ViewBag.estado;
+    Func<string, string> activa = e => (estadoSel ?? "") == e ? "activa" : "";
+}
+
+<div class="barra-acciones">
+    <div>
+        <h2 class="titulo-seccion" style="margin-bottom:4px">Vehículos e inventario</h2>
+        <p class="texto-tenue" style="margin-top:0">@Model.Count() vehículo(s) @(estadoSel != null ? "— " + estadoSel : "")</p>
+    </div>
+    @Html.ActionLink("+ Ingresar vehículo", "Create", null, new { @class = "boton boton--primario", style = "max-width:220px;text-decoration:none;text-align:center" })
+</div>
+
+<div class="pestanas">
+    @Html.ActionLink("Todos", "Index", null, new { @class = activa("") })
+    @Html.ActionLink("Disponibles", "Index", new { estado = "Disponible" }, new { @class = activa("Disponible") })
+    @Html.ActionLink("En mantenimiento", "Index", new { estado = "En mantenimiento" }, new { @class = activa("En mantenimiento") })
+    @Html.ActionLink("Vendidos", "Index", new { estado = "Vendido" }, new { @class = activa("Vendido") })
+</div>
+
+<table class="tabla-datos">
+    <thead>
+        <tr><th></th><th>Placa</th><th>Marca / Modelo</th><th>Tipo</th><th>Año</th><th>Km</th><th>Consignante</th><th>Estado</th><th></th></tr>
+    </thead>
+    <tbody>
+        @foreach (var v in Model)
+        {
+            var portada = v.VehiculoFotoes.OrderBy(f => f.id_foto).FirstOrDefault();
+            string est = v.Catalogo_EstadoVehiculo?.descripcion;
+            string clase = est == "Disponible" ? "etiqueta--disponible" : est == "Vendido" ? "etiqueta--vendido" : "etiqueta--mantenimiento";
+            <tr>
+                <td>
+                    @if (portada != null)
+                    {
+                        <img class="miniatura-lista" src="@Url.Content("~" + portada.ruta_archivo)" alt="" />
+                    }
+                    else
+                    {
+                        <div class="miniatura-lista"></div>
+                    }
+                </td>
+                <td>@v.placa</td>
+                <td>@(v.Catalogo_Marca?.descripcion) @v.modelo</td>
+                <td>@(v.Catalogo_TipoVehiculo?.descripcion)</td>
+                <td>@v.año</td>
+                <td>@((v.kilometraje ?? 0).ToString("N0"))</td>
+                <td>@(v.Contrato?.Consignante?.nombre)</td>
+                <td><span class="etiqueta @clase">@est</span></td>
+                <td style="white-space:nowrap">
+                    @Html.ActionLink("Ver", "Details", new { id = v.id_vehiculo }, new { @class = "enlace-fila" })
+                    @Html.ActionLink("Editar", "Edit", new { id = v.id_vehiculo }, new { @class = "enlace-fila" })
+                </td>
+            </tr>
+        }
+        @if (!Model.Any())
+        {
+            <tr><td colspan="9" class="texto-tenue">No hay vehículos con ese filtro.</td></tr>
+        }
+    </tbody>
+</table>

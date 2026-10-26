@@ -1,0 +1,115 @@
+﻿@using System.Linq
+@model Carros_Web.Models.Vehiculo
+@{
+    ViewBag.Title = "Detalle del vehículo";
+    var estados = (IEnumerable<Carros_Web.Models.Catalogo_EstadoVehiculo>)ViewBag.Estados;
+    string estadoActual = Model.Catalogo_EstadoVehiculo?.descripcion;
+    bool vendido = estadoActual == "Vendido";
+    bool puedeVender = Carros_Web.Infraestructura.SesionActual.TienePermiso("Ventas");
+    string claseEstado = estadoActual == "Disponible" ? "etiqueta--disponible" : vendido ? "etiqueta--vendido" : "etiqueta--mantenimiento";
+}
+
+<div class="barra-acciones">
+    <div>
+        <h2 class="titulo-seccion" style="margin-bottom:4px">@(Model.Catalogo_Marca?.descripcion) @Model.modelo (@Model.año)</h2>
+        <p class="texto-tenue" style="margin-top:0">
+            Placa @Model.placa · @(Model.Catalogo_TipoVehiculo?.descripcion) · @((Model.kilometraje ?? 0).ToString("N0")) km
+            · Consignante: @(Model.Contrato?.Consignante?.nombre ?? "—")
+        </p>
+    </div>
+    <div>
+        @if (!vendido && estados != null)
+        {
+            using (Html.BeginForm("CambiarEstado", "Vehiculos", FormMethod.Post, new { @class = "d-inline" }))
+            {
+                @Html.AntiForgeryToken()
+                <input type="hidden" name="idVehiculo" value="@Model.id_vehiculo" />
+                <select name="idEstado" onchange="this.form.submit()" class="form-select d-inline-block" style="width:auto" title="Cambiar estado">
+                    @foreach (var e in estados)
+                    {
+                        <option value="@e.id_estado" @(e.id_estado == Model.id_estado ? "selected" : "")>@e.descripcion</option>
+                    }
+                </select>
+            }
+        }
+        else
+        {
+            <span class="etiqueta @claseEstado">@estadoActual</span>
+        }
+    </div>
+</div>
+
+@if (Model.Contrato != null)
+{
+    <div class="tarjetas-resumen">
+        <div class="tarjeta-resumen">
+            <div class="tarjeta-resumen__valor">Q @Model.Contrato.precio_pactado.ToString("N2")</div>
+            <div class="tarjeta-resumen__etiqueta">Precio pactado</div>
+        </div>
+        <div class="tarjeta-resumen">
+            <div class="tarjeta-resumen__valor">@Model.Contrato.porcentaje_comision.ToString("N2") %</div>
+            <div class="tarjeta-resumen__etiqueta">Comisión de la concesionaria</div>
+        </div>
+        <div class="tarjeta-resumen">
+            <div class="tarjeta-resumen__valor">@Model.Contrato.fecha_fin.ToString("dd/MM/yyyy")</div>
+            <div class="tarjeta-resumen__etiqueta">Fin del contrato</div>
+        </div>
+    </div>
+}
+
+<h4 class="panel__titulo" style="margin-top:24px">Fotos</h4>
+<div class="galeria-fotos">
+    @foreach (var f in Model.VehiculoFotoes.OrderBy(x => x.id_foto))
+    {
+        <div class="galeria-fotos__item">
+            <img src="@Url.Content("~" + f.ruta_archivo)" alt="Foto del vehículo" />
+            @using (Html.BeginForm("EliminarFoto", "Vehiculos", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                <input type="hidden" name="idFoto" value="@f.id_foto" />
+                <input type="hidden" name="idVehiculo" value="@Model.id_vehiculo" />
+                <input type="hidden" name="volverA" value="Details" />
+                <button type="submit" class="galeria-fotos__eliminar" title="Eliminar foto" onclick="return confirm('¿Eliminar esta foto?');">✕</button>
+            }
+        </div>
+    }
+    @if (!Model.VehiculoFotoes.Any())
+    {
+        <p class="texto-tenue">Todavía no hay fotos de este vehículo.</p>
+    }
+</div>
+
+@using (Html.BeginForm("SubirFoto", "Vehiculos", FormMethod.Post, new { enctype = "multipart/form-data", style = "display:flex;gap:10px;align-items:center;flex-wrap:wrap" }))
+{
+    @Html.AntiForgeryToken()
+    <input type="hidden" name="idVehiculo" value="@Model.id_vehiculo" />
+    <input type="file" name="fotos" multiple accept="image/png,image/jpeg,image/webp" class="form-control" style="max-width:320px" />
+    <button type="submit" class="btn btn-primary">Subir fotos</button>
+}
+
+@if (Model.Mantenimientoes != null && Model.Mantenimientoes.Any())
+{
+    <h4 style="margin-top:28px">Historial de mantenimientos</h4>
+    <table class="table table-sm">
+        <tr><th>Fecha</th><th>Tipo</th><th>Costo</th><th>Estado</th><th></th></tr>
+        @foreach (var m in Model.Mantenimientoes.OrderByDescending(x => x.fecha))
+        {
+            <tr>
+                <td>@(m.fecha?.ToString("dd/MM/yyyy"))</td>
+                <td>@(m.Catalogo_TipoMantenimiento?.descripcion)</td>
+                <td>Q @((m.costo ?? 0).ToString("N2"))</td>
+                <td>@m.estado</td>
+                <td>@Html.ActionLink("Ver", "Details", "Mantenimientos", new { id = m.id_mantenimiento }, null)</td>
+            </tr>
+        }
+    </table>
+}
+
+<p style="margin-top:24px">
+    @if (estadoActual == "Disponible" && puedeVender)
+    {
+        @Html.ActionLink("Vender este vehículo", "Create", "Ventas", new { idVehiculo = Model.id_vehiculo }, new { @class = "btn btn-primary" })
+    }
+    @Html.ActionLink("Editar", "Edit", new { id = Model.id_vehiculo }, new { @class = "btn btn-outline-secondary" })
+    @Html.ActionLink("Volver al listado", "Index", null, new { @class = "btn btn-outline-secondary" })
+</p>

@@ -1,0 +1,95 @@
+﻿@model Carros_Web.Models.Mantenimiento
+@{
+    ViewBag.Title = "Mantenimiento #" + Model.id_mantenimiento;
+    var estados = (string[])ViewBag.Estados;
+    bool esInventario = Model.Vehiculo != null;
+    string descVehiculo = esInventario ? Model.Vehiculo.placa + " - " + Model.Vehiculo.modelo : Model.marca_modelo_ingresado + " (" + Model.placa_ingresada + ")";
+}
+
+<h2 class="titulo-seccion">@descVehiculo</h2>
+<p class="texto-tenue" style="margin-top:0">
+    @if (esInventario)
+    {
+        <span class="etiqueta etiqueta--disponible">Vehículo del inventario</span>
+    }
+    else
+    {
+        <span class="etiqueta etiqueta--mantenimiento">Vehículo externo</span>
+    }
+    @if (Model.pagado)
+    {
+        <span class="etiqueta etiqueta--pagada">Cobrado</span>
+    }
+    else
+    {
+        <span class="etiqueta etiqueta--pendiente">Sin cobrar</span>
+    }
+</p>
+
+<div class="panel" style="max-width:600px">
+    <table class="tabla-datos" style="box-shadow:none">
+        <tbody>
+            <tr><td>Tipo de servicio</td><td>@(Model.Catalogo_TipoMantenimiento?.descripcion)</td></tr>
+            @if (Model.Taller != null)
+            {
+                <tr><td>Taller</td><td>@Model.Taller.nombre</td></tr>
+            }
+            <tr><td>Costo del servicio</td><td>Q @((Model.costo ?? 0).ToString("N2"))</td></tr>
+            <tr><td>Fecha de ingreso</td><td>@(Model.fecha?.ToString("dd/MM/yyyy"))</td></tr>
+            @if (!esInventario)
+            {
+                <tr><td>Propietario</td><td>@Model.propietario_nombre @(!string.IsNullOrEmpty(Model.propietario_telefono) ? "— " + Model.propietario_telefono : "")</td></tr>
+            }
+            @if (!string.IsNullOrEmpty(Model.observaciones))
+            {
+                <tr><td>Observaciones</td><td>@Model.observaciones</td></tr>
+            }
+            @if (Model.pagado)
+            {
+                <tr><td>Cobrado</td><td>Q @((Model.costo ?? 0).ToString("N2")) — @(Model.Forma_Pago?.descripcion) — @(Model.fecha_pago?.ToString("dd/MM/yyyy HH:mm"))</td></tr>
+                <tr><td>Cobrado por</td><td>@(Model.Usuario?.nombre)</td></tr>
+            }
+        </tbody>
+    </table>
+
+    <h3 class="panel__titulo" style="margin-top:20px">Estado del trabajo</h3>
+    @using (Html.BeginForm("CambiarEstado", "Mantenimientos", FormMethod.Post, new { style = "display:flex;gap:10px;align-items:center;flex-wrap:wrap" }))
+    {
+        @Html.AntiForgeryToken()
+        <input type="hidden" name="id" value="@Model.id_mantenimiento" />
+        <select name="nuevoEstado" style="padding:9px;border-radius:8px;border:1px solid #d5dbe6">
+            @foreach (var e in estados)
+            {
+                <option value="@e" @(e == Model.estado ? "selected" : "")>@e</option>
+            }
+        </select>
+        <button type="submit" class="boton boton--primario" style="max-width:160px;margin-top:0">Actualizar estado</button>
+    }
+
+    @if (Model.pagado)
+    {
+        <p style="margin-top:20px">
+            @Html.ActionLink("Ver comprobante de cobro", "Comprobante", new { id = Model.id_mantenimiento }, new { @class = "boton boton--secundario", style = "display:inline-block;max-width:220px;text-decoration:none;text-align:center" })
+        </p>
+    }
+    else if (Model.estado == "Finalizado")
+    {
+        <h3 class="panel__titulo" style="margin-top:20px">Cobrar servicio</h3>
+        using (Html.BeginForm("Cobrar", "Mantenimientos", FormMethod.Post, new { style = "display:flex;gap:10px;align-items:center;flex-wrap:wrap" }))
+        {
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="id" value="@Model.id_mantenimiento" />
+            @Html.DropDownList("idFormaPago", (SelectList)ViewBag.id_forma_pago, new { required = "required", style = "padding:9px;border-radius:8px;border:1px solid #d5dbe6" })
+            <button type="submit" class="boton boton--primario" style="max-width:220px;margin-top:0">Cobrar Q @((Model.costo ?? 0).ToString("N2"))</button>
+        }
+    }
+    else
+    {
+        <p class="texto-tenue" style="margin-top:16px">El cobro se habilita cuando el estado pase a "Finalizado".</p>
+    }
+</div>
+
+<p style="margin-top:16px">
+    @Html.ActionLink("← Volver al listado de mantenimientos", "Index")
+    · @Html.ActionLink("Editar", "Edit", new { id = Model.id_mantenimiento })
+</p>

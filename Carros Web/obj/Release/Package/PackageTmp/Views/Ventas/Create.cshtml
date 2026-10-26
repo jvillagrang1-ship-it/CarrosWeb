@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "Registrar venta";
+}
+
+<h2 class="titulo-seccion">Registrar venta</h2>
+<p class="texto-tenue">La comisión y la liquidación al consignante se calculan automáticamente según el contrato del vehículo.</p>
+
+<div class="panel" style="max-width:100%">
+    @using (Html.BeginForm("Create", "Ventas", FormMethod.Post, new { @class = "formulario-vertical" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="campo-ancho">
+            @Html.ValidationSummary(true, "", new { @class = "alerta alerta--error" })
+        </div>
+        <div>
+            <label>Vehículo (solo sin venta registrada)</label>
+            @Html.DropDownList("idVehiculo", (SelectList)ViewBag.id_vehiculo, "-- Selecciona --", new { required = "required" })
+        </div>
+        <div>
+            <label>Cliente</label>
+            @Html.DropDownList("idCliente", (SelectList)ViewBag.id_cliente, "-- Selecciona --", new { required = "required" })
+        </div>
+        <div>
+            <label>Precio final (Q)</label>
+            <input type="number" step="0.01" min="0.01" name="precioFinal" required />
+        </div>
+        <div>
+            <label>Forma de pago</label>
+            @Html.DropDownList("idFormaPago", (SelectList)ViewBag.id_forma_pago, "-- Selecciona --", new { required = "required" })
+        </div>
+        <div class="campo-ancho">
+            <button type="submit" class="boton boton--primario" style="max-width:220px">Registrar venta</button>
+            @Html.ActionLink("Cancelar", "Index", null, new { @class = "enlace-secundario", style = "margin-left:16px" })
+        </div>
+    }
+</div>
+
+<p class="texto-tenue" style="margin-top:16px">
+    ¿El cliente no existe? @Html.ActionLink("Crear cliente nuevo", "Create", "Clientes").
+</p>

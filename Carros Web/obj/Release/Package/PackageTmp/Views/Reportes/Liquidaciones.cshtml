@@ -1,0 +1,40 @@
+﻿@using System.Linq
+@model IEnumerable<Carros_Web.Models.Liquidacion>
+@{
+    ViewBag.Title = "Liquidaciones pendientes";
+    bool esAdmin = Carros_Web.Infraestructura.SesionActual.NombreRol == "Administrador";
+}
+
+@Html.Partial("_TabsReportes")
+
+<h2 class="titulo-seccion">Liquidaciones pendientes a consignantes</h2>
+
+<table class="tabla-datos">
+    <thead><tr><th>Consignante</th><th>Vehículo</th><th>Monto a liquidar</th><th>Estado</th><th></th></tr></thead>
+    <tbody>
+        @foreach (var l in Model)
+        {
+            <tr>
+                <td>@(l.Venta?.Vehiculo?.Contrato?.Consignante?.nombre)</td>
+                <td>@(l.Venta?.Vehiculo?.Catalogo_Marca?.descripcion) @(l.Venta?.Vehiculo?.modelo) (@(l.Venta?.Vehiculo?.placa))</td>
+                <td>Q @((l.monto_liquidado ?? 0).ToString("N2"))</td>
+                <td><span class="etiqueta etiqueta--pendiente">@l.estado</span></td>
+                <td>
+                    @if (esAdmin)
+                    {
+                        using (Html.BeginForm("MarcarPagada", "Liquidaciones", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="id" value="@l.id_liquidacion" />
+                            <button type="submit" class="boton-chico" style="background:#1e8e5a;color:#fff">Marcar pagada</button>
+                        }
+                    }
+                </td>
+            </tr>
+        }
+        @if (!Model.Any())
+        {
+            <tr><td colspan="5" class="texto-tenue">No hay liquidaciones pendientes.</td></tr>
+        }
+    </tbody>
+</table>

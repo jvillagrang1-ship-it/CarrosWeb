@@ -1,0 +1,22 @@
+﻿@model Carros_Web.Models.Mantenimiento
+@{
+    ViewBag.Title = "Eliminar mantenimiento";
+}
+
+<h2>¿Eliminar este registro de mantenimiento?</h2>
+
+<div class="alert alert-warning">
+    <dl class="row mb-0">
+        <dt class="col-sm-3">Placa</dt>
+        <dd class="col-sm-9">@Model.placa_ingresada</dd>
+        <dt class="col-sm-3">Propietario</dt>
+        <dd class="col-sm-9">@Model.propietario_nombre</dd>
+    </dl>
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <input type="submit" value="Eliminar" class="btn btn-danger" />
+    @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-outline-secondary" })
+}

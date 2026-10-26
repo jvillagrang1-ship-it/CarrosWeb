@@ -1,0 +1,28 @@
+﻿@using System.Linq
+@model IEnumerable<Carros_Web.Models.Rol>
+@{
+    ViewBag.Title = "Roles";
+}
+
+<h2>Roles y permisos</h2>
+
+<p>
+    @Html.ActionLink("+ Nuevo rol", "Create", null, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Volver a usuarios", "Index", "Usuarios", null, new { @class = "btn btn-outline-secondary" })
+</p>
+
+<table class="table table-striped">
+    <tr>
+        <th>Rol</th>
+        <th>Permisos asignados</th>
+        <th></th>
+    </tr>
+@foreach (var item in Model)
+{
+    <tr>
+        <td>@item.nombre_rol</td>
+        <td>@string.Join(", ", item.Permisoes.Select(p => p.descripcion))</td>
+        <td>@Html.ActionLink("Editar permisos", "Permisos", new { id = item.id_rol }, new { @class = "btn btn-sm btn-outline-secondary" })</td>
+    </tr>
+}
+</table>

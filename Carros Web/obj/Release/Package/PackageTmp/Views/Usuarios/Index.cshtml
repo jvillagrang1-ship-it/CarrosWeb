@@ -1,0 +1,98 @@
+﻿@using System.Linq
+@model IEnumerable<Carros_Web.Models.Usuario>
+@{
+    ViewBag.Title = "Usuarios";
+    var roles = (List<Carros_Web.Models.Rol>)ViewBag.Roles;
+    int idActual = (int)ViewBag.IdUsuarioActual;
+}
+
+<h2 class="titulo-seccion">Usuarios y roles</h2>
+<p class="texto-tenue">Crea la cuenta del vendedor aquí y asígnale el rol "Vendedor". Qué puede ver y hacer ese rol se define en el menú @Html.ActionLink("Permisos", "Index", "Roles").</p>
+
+<div class="panel" style="max-width:100%">
+    <h3 class="panel__titulo">Nuevo usuario</h3>
+    @using (Html.BeginForm("Create", "Usuarios", FormMethod.Post, new { @class = "formulario-vertical" }))
+    {
+        @Html.AntiForgeryToken()
+        <div>
+            <label>Nombre completo</label>
+            <input type="text" name="nombre" required />
+        </div>
+        <div>
+            <label>Correo (usuario para iniciar sesión)</label>
+            <input type="email" name="correo" required />
+        </div>
+        <div>
+            <label>Contraseña</label>
+            <div class="campo-contrasena">
+                <input type="password" id="contrasenaNueva" name="contrasena" required />
+                <button type="button" class="campo-contrasena__boton" onclick="alternarContrasena('contrasenaNueva', this)" aria-label="Mostrar contraseña">👁️</button>
+            </div>
+        </div>
+        <div>
+            <label>Rol</label>
+            <select name="idRol" required>
+                @foreach (var r in roles)
+                {
+                    <option value="@r.id_rol">@r.nombre_rol</option>
+                }
+            </select>
+        </div>
+        <div class="campo-ancho">
+            <button type="submit" class="boton boton--primario" style="max-width:200px">Crear usuario</button>
+        </div>
+    }
+</div>
+
+<div style="overflow-x:auto">
+<table class="tabla-datos" style="min-width:760px">
+    <thead><tr><th>Nombre</th><th>Correo</th><th>Rol</th><th>Estado</th><th></th><th>Restablecer contraseña</th></tr></thead>
+    <tbody>
+        @foreach (var u in Model)
+        {
+            <tr>
+                <td>@u.nombre</td>
+                <td>@u.correo</td>
+                <td>@(u.Rol?.nombre_rol)</td>
+                <td>
+                    @if (u.activo)
+                    {
+                        <span class="etiqueta etiqueta--disponible">Activo</span>
+                    }
+                    else
+                    {
+                        <span class="etiqueta etiqueta--vendido">Inactivo</span>
+                    }
+                </td>
+                <td>
+                    @if (u.id_usuario != idActual)
+                    {
+                        using (Html.BeginForm("CambiarActivo", "Usuarios", FormMethod.Post, new { style = "display:inline" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="id" value="@u.id_usuario" />
+                            <input type="hidden" name="activo" value="@((!u.activo).ToString().ToLower())" />
+                            <button type="submit" class="boton-chico" style="background:@(u.activo ? "#fdecea" : "#e6f6ec");color:@(u.activo ? "#c0392b" : "#1e8e5a")">
+                                @(u.activo ? "Desactivar" : "Activar")
+                            </button>
+                        }
+                    }
+                </td>
+                <td>
+                    @using (Html.BeginForm("CambiarContrasena", "Usuarios", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" name="id" value="@u.id_usuario" />
+                        <div class="campo-contrasena" style="width:180px;margin-bottom:6px">
+                            <input type="password" id="pass_@u.id_usuario" name="nuevaContrasena" placeholder="Nueva contraseña"
+                                   style="width:100%;box-sizing:border-box;padding:6px 34px 6px 8px;font-size:12px" />
+                            <button type="button" class="campo-contrasena__boton" style="font-size:13px" onclick="alternarContrasena('pass_@u.id_usuario', this)" aria-label="Mostrar contraseña">👁️</button>
+                        </div>
+                        <button type="submit" class="boton-chico agregar">Actualizar</button>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+</div>

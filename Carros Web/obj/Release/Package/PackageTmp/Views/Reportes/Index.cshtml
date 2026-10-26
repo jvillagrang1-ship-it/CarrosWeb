@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "Reportes";
+}
+
+<h2>Reportes</h2>
+
+<div class="row g-3">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Inventario</h5>
+                <p class="card-text">Vehículos agrupados por estado.</p>
+                @Html.ActionLink("Ver reporte", "Inventario", null, new { @class = "btn btn-primary btn-sm" })
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Ventas y comisiones</h5>
+                <p class="card-text">Ventas realizadas, comisión ganada y liquidado a consignantes.</p>
+                @Html.ActionLink("Ver reporte", "VentasComisiones", null, new { @class = "btn btn-primary btn-sm" })
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Mantenimientos cobrados</h5>
+                <p class="card-text">Servicios de taller cobrados, de vehículos propios y externos.</p>
+                @Html.ActionLink("Ver reporte", "MantenimientosCobrados", null, new { @class = "btn btn-primary btn-sm" })
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Liquidaciones a consignantes</h5>
+                <p class="card-text">Montos pendientes y pagados a cada consignante.</p>
+                @Html.ActionLink("Ver reporte", "Liquidaciones", null, new { @class = "btn btn-primary btn-sm" })
+            </div>
+        </div>
+    </div>
+</div>

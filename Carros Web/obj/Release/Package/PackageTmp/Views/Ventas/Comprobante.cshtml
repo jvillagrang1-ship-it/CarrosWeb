@@ -1,0 +1,33 @@
+﻿@model Carros_Web.Models.Venta
+@{
+    ViewBag.Title = "Comprobante de venta";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Comprobante de venta #@Model.id_venta</title>
+    <link href="@Url.Content("~/Content/Concesionaria.css?v=3")" rel="stylesheet" />
+</head>
+<body class="pagina-comprobante">
+    <div class="comprobante">
+        <h1>🚗 Comprobante de venta</h1>
+        <p class="texto-tenue" style="margin-top:0">Venta #@Model.id_venta — @Model.fecha.ToString("dd/MM/yyyy HH:mm")</p>
+        <table>
+            <tr><td>Vehículo</td><td>@(Model.Vehiculo?.Catalogo_Marca?.descripcion) @(Model.Vehiculo?.modelo) (@(Model.Vehiculo?.placa))</td></tr>
+            <tr><td>Cliente</td><td>@(Model.Cliente?.nombre)</td></tr>
+            <tr><td>Consignante</td><td>@(Model.Vehiculo?.Contrato?.Consignante?.nombre ?? "—")</td></tr>
+            <tr><td>Forma de pago</td><td>@(Model.Forma_Pago?.descripcion)</td></tr>
+            <tr><td>Precio final</td><td class="total">Q @Model.precio_final.ToString("N2")</td></tr>
+            <tr><td>Comisión de la concesionaria</td><td>Q @Model.comision.ToString("N2")</td></tr>
+            <tr><td>Liquidación al consignante</td><td>Q @Model.liquidacion_consignante.ToString("N2")</td></tr>
+        </table>
+        <p class="no-imprimir" style="margin-top:24px">
+            <button onclick="window.print()" class="boton boton--primario" style="max-width:160px">Imprimir</button>
+            @Html.ActionLink("Volver a ventas", "Index", "Ventas", null, new { style = "margin-left:12px" })
+        </p>
+    </div>
+</body>
+</html>

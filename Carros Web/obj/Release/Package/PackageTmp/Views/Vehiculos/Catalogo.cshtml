@@ -1,0 +1,56 @@
+﻿@using System.Linq
+@model List<Carros_Web.Models.Vehiculo>
+@{
+    ViewBag.Title = "Catálogo de vehículos";
+}
+
+<div class="barra-acciones">
+    <div>
+        <h2 class="titulo-seccion" style="margin-bottom:4px">Catálogo de vehículos</h2>
+        <p class="texto-tenue" style="margin-top:0">@Model.Count vehículo(s) disponibles para vender.</p>
+    </div>
+    @Html.ActionLink("Ver como tabla", "Index", "Vehiculos", null, new { @class = "btn btn-outline-secondary" })
+</div>
+
+<div class="catalogo-rejilla">
+    @foreach (var v in Model)
+    {
+        var portada = v.VehiculoFotoes.OrderBy(f => f.id_foto).FirstOrDefault();
+        <div class="catalogo-tarjeta">
+            <div class="catalogo-tarjeta__foto">
+                @if (portada != null)
+                {
+                    <img src="@Url.Content("~" + portada.ruta_archivo)" alt="@(v.Catalogo_Marca?.descripcion) @v.modelo" />
+                }
+                else
+                {
+                    <div class="catalogo-tarjeta__sin-foto">Sin foto</div>
+                }
+                <span class="etiqueta etiqueta--disponible catalogo-tarjeta__badge">Disponible</span>
+            </div>
+            <div class="catalogo-tarjeta__cuerpo">
+                <h3>@(v.Catalogo_Marca?.descripcion) @v.modelo</h3>
+                <p class="texto-tenue" style="margin:2px 0 10px">@v.año · @(v.Catalogo_TipoVehiculo?.descripcion) · @((v.kilometraje ?? 0).ToString("N0")) km · Placa @v.placa</p>
+                @if (v.Contrato != null)
+                {
+                    <p class="catalogo-tarjeta__precio">Q @v.Contrato.precio_pactado.ToString("N2")</p>
+                }
+                else
+                {
+                    <p class="catalogo-tarjeta__precio texto-tenue">Precio a convenir</p>
+                }
+                <div class="catalogo-tarjeta__acciones">
+                    @Html.ActionLink("Ver detalle", "Details", "Vehiculos", new { id = v.id_vehiculo }, null)
+                    @if (Carros_Web.Infraestructura.SesionActual.TienePermiso("Ventas"))
+                    {
+                        @Html.ActionLink("Comprar", "Create", "Ventas", new { idVehiculo = v.id_vehiculo }, new { @class = "boton boton--primario", style = "text-decoration:none;text-align:center;padding:8px" })
+                    }
+                </div>
+            </div>
+        </div>
+    }
+    @if (!Model.Any())
+    {
+        <p class="texto-tenue">No hay vehículos disponibles en este momento.</p>
+    }
+</div>

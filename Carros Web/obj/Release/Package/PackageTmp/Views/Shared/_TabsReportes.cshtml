@@ -1,0 +1,10 @@
+﻿@{
+    string accionActual = (string)ViewContext.RouteData.Values["action"];
+    Func<string, string> activa = a => accionActual == a ? "activa" : "";
+}
+<div class="pestanas">
+    @Html.ActionLink("Inventario", "Inventario", "Reportes", null, new { @class = activa("Inventario") })
+    @Html.ActionLink("Ventas por periodo", "VentasComisiones", "Reportes", null, new { @class = activa("VentasComisiones") })
+    @Html.ActionLink("Liquidaciones pendientes", "Liquidaciones", "Reportes", null, new { @class = activa("Liquidaciones") })
+    @Html.ActionLink("Mantenimientos cobrados", "MantenimientosCobrados", "Reportes", null, new { @class = activa("MantenimientosCobrados") })
+</div>

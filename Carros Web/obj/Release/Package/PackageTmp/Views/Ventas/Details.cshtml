@@ -1,0 +1,49 @@
+﻿@using System.Linq
+@model Carros_Web.Models.Venta
+@{
+    ViewBag.Title = "Detalle de venta";
+}
+
+<h2>Venta #@Model.id_venta</h2>
+
+<div class="card mb-3">
+    <div class="card-body">
+        <dl class="row mb-0">
+            <dt class="col-sm-3">Fecha</dt>
+            <dd class="col-sm-9">@Model.fecha.ToString("dd/MM/yyyy HH:mm")</dd>
+            <dt class="col-sm-3">Vehículo</dt>
+            <dd class="col-sm-9">@(Model.Vehiculo?.placa) — @(Model.Vehiculo?.modelo)</dd>
+            <dt class="col-sm-3">Consignante</dt>
+            <dd class="col-sm-9">@(Model.Vehiculo?.Contrato?.Consignante?.nombre)</dd>
+            <dt class="col-sm-3">Cliente</dt>
+            <dd class="col-sm-9">@(Model.Cliente?.nombre)</dd>
+            <dt class="col-sm-3">Precio final</dt>
+            <dd class="col-sm-9">Q @Model.precio_final.ToString("N2")</dd>
+            <dt class="col-sm-3">Comisión concesionaria</dt>
+            <dd class="col-sm-9">Q @Model.comision.ToString("N2")</dd>
+            <dt class="col-sm-3">Liquidación al consignante</dt>
+            <dd class="col-sm-9">Q @Model.liquidacion_consignante.ToString("N2")</dd>
+            <dt class="col-sm-3">Forma de pago</dt>
+            <dd class="col-sm-9">@(Model.Forma_Pago?.descripcion)</dd>
+        </dl>
+    </div>
+</div>
+
+@if (Model.Liquidacions != null && Model.Liquidacions.Any())
+{
+    <h5>Liquidación al consignante</h5>
+    @foreach (var l in Model.Liquidacions)
+    {
+        <p>
+            Monto: @(l.monto_liquidado?.ToString("N2")) —
+            <span class="badge @(l.estado == "Pagada" ? "bg-success" : "bg-warning text-dark")">@l.estado</span>
+            @if (l.fecha_pago != null)
+            {
+                <text>(pagada el @(l.fecha_pago?.ToString("dd/MM/yyyy")))</text>
+            }
+        </p>
+    }
+}
+
+<p>@Html.ActionLink("Ver comprobante", "Comprobante", new { id = Model.id_venta }, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Volver al listado", "Index", null, new { @class = "btn btn-outline-secondary" })</p>

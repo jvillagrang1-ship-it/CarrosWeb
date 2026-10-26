@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "Acceso denegado";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Acceso denegado - Concesionaria</title>
+    <link href="@Url.Content("~/Content/Concesionaria.css?v=3")" rel="stylesheet" />
+</head>
+<body class="pantalla-login">
+    <div class="tarjeta-login">
+        <h1 class="tarjeta-login__titulo">🚫 Acceso denegado</h1>
+        <p class="tarjeta-login__subtitulo">Tu usuario no tiene permiso para entrar a esa sección. Si crees que deberías tenerlo, pídele a un Administrador que te lo asigne desde "Roles y permisos".</p>
+        @Html.ActionLink("Volver al inicio", "Index", "Home", null, new { @class = "boton boton--primario", style = "display:block;text-decoration:none;text-align:center" })
+    </div>
+</body>
+</html>

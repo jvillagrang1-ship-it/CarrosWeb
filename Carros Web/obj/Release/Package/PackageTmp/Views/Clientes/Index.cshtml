@@ -1,0 +1,45 @@
+﻿@using System.Linq
+@model IEnumerable<Carros_Web.Models.Cliente>
+@{
+    ViewBag.Title = "Clientes";
+}
+
+<h2 class="titulo-seccion">Clientes</h2>
+
+<div class="panel" style="max-width:100%">
+    <h3 class="panel__titulo">Nuevo cliente</h3>
+    @using (Html.BeginForm("Create", "Clientes", FormMethod.Post, new { @class = "formulario-vertical" }))
+    {
+        @Html.AntiForgeryToken()
+        <div><label>Nombre completo</label><input type="text" name="nombre" required /></div>
+        <div><label>DPI</label><input type="text" name="DPI" required /></div>
+        <div><label>Teléfono</label><input type="text" name="telefono" /></div>
+        <div><label>Dirección</label><input type="text" name="direccion" /></div>
+        <div class="campo-ancho">
+            <button type="submit" class="boton boton--primario" style="max-width:200px">Registrar cliente</button>
+        </div>
+    }
+</div>
+
+<table class="tabla-datos">
+    <thead><tr><th>Nombre</th><th>DPI</th><th>Teléfono</th><th>Dirección</th><th></th></tr></thead>
+    <tbody>
+        @foreach (var c in Model)
+        {
+            <tr>
+                <td>@c.nombre</td>
+                <td>@c.DPI</td>
+                <td>@c.telefono</td>
+                <td>@c.direccion</td>
+                <td style="white-space:nowrap">
+                    @Html.ActionLink("Editar", "Edit", new { id = c.id_cliente }, new { @class = "enlace-fila" })
+                    @Html.ActionLink("Eliminar", "Delete", new { id = c.id_cliente }, new { @class = "enlace-fila" })
+                </td>
+            </tr>
+        }
+        @if (!Model.Any())
+        {
+            <tr><td colspan="5" class="texto-tenue">Todavía no hay clientes registrados.</td></tr>
+        }
+    </tbody>
+</table>

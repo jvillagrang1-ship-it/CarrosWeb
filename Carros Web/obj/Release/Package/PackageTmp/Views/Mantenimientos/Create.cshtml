@@ -1,0 +1,69 @@
+﻿@model Carros_Web.Models.Mantenimiento
+@{
+    ViewBag.Title = "Ingresar vehículo a taller";
+}
+
+<h2 class="titulo-seccion">Ingresar vehículo a taller</h2>
+<p class="texto-tenue">Puede ser un vehículo del inventario de la concesionaria, o cualquier otro carro que llegue solo a servicio.</p>
+
+<div class="panel" style="max-width:100%">
+    @using (Html.BeginForm("Create", "Mantenimientos", FormMethod.Post, new { @class = "formulario-vertical" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="campo-ancho">
+            @Html.ValidationSummary(true, "", new { @class = "alerta alerta--error" })
+        </div>
+
+        <div class="campo-ancho">
+            <label>Vehículo del inventario (opcional)</label>
+            @Html.DropDownList("id_vehiculo", null, "-- No es de la empresa / no está en inventario --")
+        </div>
+
+        <div class="campo-ancho" style="border-top:1px dashed #d5dbe6;padding-top:14px;margin-top:4px">
+            <p class="texto-tenue" style="margin:0 0 10px">Si NO seleccionaste uno de arriba, llena estos datos del vehículo externo:</p>
+        </div>
+
+        <div>
+            <label>Placa</label>
+            <input type="text" name="placa_ingresada" value="@(Model?.placa_ingresada)" />
+        </div>
+        <div>
+            <label>Marca / modelo</label>
+            <input type="text" name="marca_modelo_ingresado" value="@(Model?.marca_modelo_ingresado)"/>
+        </div>
+        <div>
+            <label>Nombre del propietario</label>
+            <input type="text" name="propietario_nombre" value="@(Model?.propietario_nombre)" />
+        </div>
+        <div>
+            <label>Teléfono del propietario</label>
+            <input type="text" name="propietario_telefono" value="@(Model?.propietario_telefono)" />
+        </div>
+
+        <div class="campo-ancho" style="border-top:1px dashed #d5dbe6;padding-top:14px;margin-top:4px">
+            <h3 class="panel__titulo" style="margin:0">Datos del servicio</h3>
+        </div>
+
+        <div>
+            <label>Tipo de mantenimiento</label>
+            @Html.DropDownList("id_tipo_mantenimiento", null, "-- Selecciona --", new { required = "required" })
+        </div>
+        <div>
+            <label>Costo estimado (Q)</label>
+            <input type="number" step="0.01" min="0" name="costo" value="@(Model?.costo)" required />
+        </div>
+        <div>
+            <label>Fecha de ingreso</label>
+            <input type="date" name="fecha" value="@((Model?.fecha ?? DateTime.Today).ToString("yyyy-MM-dd"))" required />
+        </div>
+        <div class="campo-ancho">
+            <label>Observaciones (opcional)</label>
+            <input type="text" name="observaciones" value="@(Model?.observaciones)" />
+        </div>
+
+        <div class="campo-ancho">
+            <button type="submit" class="boton boton--primario" style="max-width:220px">Ingresar a taller</button>
+            @Html.ActionLink("Cancelar", "Index", null, new { @class = "enlace-secundario", style = "margin-left:16px" })
+        </div>
+    }
+</div>

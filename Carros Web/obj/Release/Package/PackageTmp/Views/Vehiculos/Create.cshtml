@@ -1,0 +1,88 @@
+﻿@model Carros_Web.Models.Vehiculo
+@{
+    ViewBag.Title = "Ingresar vehículo";
+    var consignantes = (List<Carros_Web.Models.Consignante>)ViewBag.Consignantes;
+}
+
+<h2 class="titulo-seccion">Ingresar vehículo en consignación</h2>
+<p class="texto-tenue">Registra al mismo tiempo el vehículo y el contrato de consignación con su propietario.</p>
+
+<div class="panel" style="max-width:100%">
+    @using (Html.BeginForm("Create", "Vehiculos", FormMethod.Post, new { enctype = "multipart/form-data", @class = "formulario-vertical" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="campo-ancho">
+            @Html.ValidationSummary(true, "", new { @class = "alerta alerta--error" })
+        </div>
+
+        <div class="campo-ancho"><h3 class="panel__titulo" style="margin-bottom:0">Datos del contrato</h3></div>
+
+        <div>
+            <label>Consignante</label>
+            <select name="idConsignante">
+                <option value="">-- Selecciona --</option>
+                @foreach (var c in consignantes)
+                {
+                    <option value="@c.id_consignante">@c.nombre (@c.DPI)</option>
+                }
+            </select>
+        </div>
+        <div>
+            <label>Precio pactado (Q)</label>
+            <input type="number" step="0.01" min="0" name="precioPactado" />
+        </div>
+        <div>
+            <label>Comisión (%)</label>
+            <input type="number" step="0.01" min="0" max="100" name="porcentajeComision" />
+        </div>
+        <div>
+            <label>Vigencia desde</label>
+            <input type="date" name="fechaInicio" value="@DateTime.Today.ToString("yyyy-MM-dd")" />
+        </div>
+        <div>
+            <label>Vigencia hasta</label>
+            <input type="date" name="fechaFin" value="@DateTime.Today.AddMonths(6).ToString("yyyy-MM-dd")" />
+        </div>
+        <div>
+            <label>…o usar un contrato existente</label>
+            @Html.DropDownList("id_contrato", (SelectList)ViewBag.id_contrato, "-- Ninguno --")
+        </div>
+
+        <div class="campo-ancho"><h3 class="panel__titulo" style="margin-bottom:0">Datos del vehículo</h3></div>
+
+        <div>
+            <label>Tipo de vehículo</label>
+            @Html.DropDownList("id_tipo", (SelectList)ViewBag.id_tipo, "-- Selecciona --", new { required = "required" })
+        </div>
+        <div>
+            <label>Marca</label>
+            @Html.DropDownList("id_marca", (SelectList)ViewBag.id_marca, "-- Selecciona --", new { required = "required" })
+        </div>
+        <div>
+            <label>Modelo</label>
+            <input type="text" name="modelo" value="@(Model?.modelo)" required />
+        </div>
+        <div>
+            <label>Año</label>
+            <input type="number" name="año" value="@(Model?.año)" min="1950" max="2100" required />
+        </div>
+        <div>
+            <label>Placa</label>
+            <input type="text" name="placa" value="@(Model?.placa)" required />
+        </div>
+        <div>
+            <label>Kilometraje</label>
+            <input type="number" name="kilometraje" value="@(Model?.kilometraje)" min="0" />
+        </div>
+        <div class="campo-ancho">
+            <label>Fotos (opcional, jpg / png / webp, máx. 5 MB c/u)</label>
+            <input type="file" name="fotos" multiple accept="image/png,image/jpeg,image/webp" />
+        </div>
+
+        <div class="campo-ancho">
+            <button type="submit" class="boton boton--primario" style="max-width:240px">Guardar vehículo</button>
+        </div>
+    }
+</div>
+
+<p class="texto-tenue" style="margin-top:16px">¿Necesitas dar de alta primero al propietario? Ve a @Html.ActionLink("Consignantes", "Index", "Consignantes").</p>

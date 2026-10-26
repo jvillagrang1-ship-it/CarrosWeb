@@ -1,0 +1,36 @@
+﻿@model Carros_Web.Models.Empresa
+@{
+    ViewBag.Title = "Editar empresa";
+}
+<h2>Editar empresa</h2>
+
+@using (Html.BeginForm("Editar", "Empresa", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "alert alert-danger" })
+    @Html.HiddenFor(m => m.id_empresa)
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.nombre, "Nombre")
+        @Html.TextBoxFor(m => m.nombre, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.moneda, "Moneda")
+        @Html.TextBoxFor(m => m.moneda, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.porcentaje_comision_default, "% Comisión por defecto")
+        @Html.TextBoxFor(m => m.porcentaje_comision_default, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Logotipo</label>
+        @if (!string.IsNullOrEmpty(Model.logotipo))
+        {
+            <div><img src="@Url.Content(Model.logotipo)" style="max-height:80px" /></div>
+        }
+        <input type="file" name="archivoLogo" class="form-control" accept="image/*" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-default" })
+}

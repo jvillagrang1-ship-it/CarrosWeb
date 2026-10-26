@@ -1,0 +1,95 @@
+﻿@using System.Linq
+@model Carros_Web.Models.Vehiculo
+@{
+    ViewBag.Title = "Editar vehículo";
+}
+
+<h2>Editar vehículo</h2>
+
+@using (Html.BeginForm("Edit", "Vehiculos", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.id_vehiculo)
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.placa, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(m => m.placa, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.modelo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(m => m.modelo, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.año, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(m => m.año, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.kilometraje, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(m => m.kilometraje, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Tipo de vehículo", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("id_tipo", null, "-- Seleccione --", htmlAttributes: new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Marca", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("id_marca", null, "-- Seleccione --", htmlAttributes: new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Estado", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("id_estado", null, "-- Seleccione --", htmlAttributes: new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Contrato de consignación", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("id_contrato", null, "-- Ninguno --", htmlAttributes: new { @class = "form-control" })
+            </div>
+        </div>
+
+        @if (Model.VehiculoFotoes != null && Model.VehiculoFotoes.Any())
+        {
+            <div class="form-group">
+                <label class="control-label col-md-2">Fotos actuales</label>
+                <div class="col-md-10 d-flex flex-wrap gap-2">
+                    @foreach (var foto in Model.VehiculoFotoes)
+                    {
+                        <div class="text-center">
+                            <img src="@Url.Content("~" + foto.ruta_archivo)" style="width:120px;height:90px;object-fit:cover;" class="img-thumbnail" />
+                            <small>@Html.ActionLink("Gestionar fotos", "Details", new { id = Model.id_vehiculo })</small>
+                        </div>
+                    }
+                </div>
+            </div>
+        }
+
+        <div class="form-group">
+            @Html.Label("Agregar fotos", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" name="fotos" multiple accept="image/*" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Guardar" class="btn btn-primary" />
+                @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-outline-secondary" })
+            </div>
+        </div>
+    </div>
+}
