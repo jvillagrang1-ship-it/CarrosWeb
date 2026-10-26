@@ -1,0 +1,39 @@
+﻿@model IEnumerable<CarrosWeb.Models.Contrato>
+@{
+    ViewBag.Title = "Contratos de consignación";
+}
+
+<h2>Contratos de consignación</h2>
+
+<p>
+    @Html.ActionLink("+ Nuevo contrato", "Create", new { idConsignante = ViewBag.IdConsignante }, new { @class = "btn btn-primary btn-sm" })
+    @Html.ActionLink("Volver a consignantes", "Index", "Consignantes", null, new { @class = "btn btn-outline-secondary btn-sm" })
+</p>
+
+<table class="table table-striped">
+    <tr>
+        <th>Consignante</th>
+        <th>Precio pactado</th>
+        <th>% Comisión</th>
+        <th>Inicio</th>
+        <th>Fin</th>
+        <th>Vehículos</th>
+        <th></th>
+    </tr>
+@foreach (var item in Model)
+{
+    <tr>
+        <td>@(item.Consignante?.nombre)</td>
+        <td>@item.precio_pactado.ToString("N2")</td>
+        <td>@item.porcentaje_comision %</td>
+        <td>@item.fecha_inicio.ToString("dd/MM/yyyy")</td>
+        <td>@item.fecha_fin.ToString("dd/MM/yyyy") @if (item.fecha_fin < DateTime.Today) { <span class="badge bg-danger">Vencido</span> }</td>
+        <td>@item.Vehiculoes.Count</td>
+        <td>
+            @Html.ActionLink("Detalles", "Details", new { id = item.id_contrato }, new { @class = "btn btn-sm btn-outline-info" })
+            @Html.ActionLink("Editar", "Edit", new { id = item.id_contrato }, new { @class = "btn btn-sm btn-outline-secondary" })
+            @Html.ActionLink("Eliminar", "Delete", new { id = item.id_contrato }, new { @class = "btn btn-sm btn-outline-danger" })
+        </td>
+    </tr>
+}
+</table>

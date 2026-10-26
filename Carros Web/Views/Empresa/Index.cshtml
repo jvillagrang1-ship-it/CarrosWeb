@@ -1,0 +1,51 @@
+﻿@model CarrosWeb.Models.Empresa
+@{
+    ViewBag.Title = "Empresa";
+    var empresa = Model ?? new CarrosWeb.Models.Empresa { nombre = "Mi Concesionaria", moneda = "GTQ", porcentaje_comision_default = 10m };
+}
+
+<h2 class="titulo-seccion">Datos de la empresa</h2>
+<p class="texto-tenue">Esta información se usa en todo el sistema (comprobantes, reportes, comisión por defecto).</p>
+
+<div class="panel" style="max-width:560px">
+    @using (Html.BeginForm("Editar", "Empresa", FormMethod.Post, new { enctype = "multipart/form-data", @class = "formulario-vertical" }))
+    {
+        @Html.AntiForgeryToken()
+        <input type="hidden" name="id_empresa" value="@empresa.id_empresa" />
+
+        <div class="campo-ancho" style="display:flex;align-items:center;gap:16px">
+            @if (!string.IsNullOrEmpty(empresa.logotipo))
+            {
+                <img src="@Url.Content("~" + empresa.logotipo)" alt="Logotipo actual"
+                     style="width:90px;height:90px;object-fit:contain;border-radius:10px;border:1px solid #d5dbe6;background:#fff;padding:6px" />
+            }
+            else
+            {
+                <div style="width:90px;height:90px;border-radius:10px;border:1px dashed #c3cbdb;display:flex;align-items:center;justify-content:center;color:#9aa6bb;font-size:12px;text-align:center">
+                    Sin logotipo
+                </div>
+            }
+            <div style="flex:1">
+                <label>Logotipo (jpg, png o webp, máx. 3 MB)</label>
+                <input type="file" name="archivoLogo" accept="image/png,image/jpeg,image/webp" style="max-width:none" />
+            </div>
+        </div>
+
+        <div>
+            <label>Nombre de la concesionaria</label>
+            <input type="text" name="nombre" value="@empresa.nombre" required />
+        </div>
+        <div>
+            <label>Moneda</label>
+            <input type="text" name="moneda" value="@empresa.moneda" placeholder="GTQ" />
+        </div>
+        <div class="campo-ancho">
+            <label>Comisión por defecto (%)</label>
+            <input type="number" step="0.01" min="0" max="100" name="porcentaje_comision_default" value="@(empresa.porcentaje_comision_default.ToString().Replace(',', '.'))" />
+        </div>
+
+        <div class="campo-ancho">
+            <button type="submit" class="boton boton--primario" style="max-width:240px">Guardar cambios</button>
+        </div>
+    }
+</div>

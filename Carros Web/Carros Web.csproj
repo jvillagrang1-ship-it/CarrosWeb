@@ -330,6 +330,28 @@
     <Content Include="Views\Catalogo_TipoVehiculo\Edit.cshtml" />
     <Content Include="Views\Catalogo_TipoVehiculo\Index.cshtml" />
     <Content Include="Views\Catalogos\Index.cshtml" />
+    <Content Include="Views\Clientes\Create.cshtml" />
+    <Content Include="Views\Clientes\Delete.cshtml" />
+    <Content Include="Views\Clientes\Details.cshtml" />
+    <Content Include="Views\Clientes\Edit.cshtml" />
+    <Content Include="Views\Clientes\Index.cshtml" />
+    <Content Include="Views\Consignantes\Create.cshtml" />
+    <Content Include="Views\Consignantes\Delete.cshtml" />
+    <Content Include="Views\Consignantes\Details.cshtml" />
+    <Content Include="Views\Consignantes\Edit.cshtml" />
+    <Content Include="Views\Consignantes\Index.cshtml" />
+    <Content Include="Views\Contratos\Create.cshtml" />
+    <Content Include="Views\Contratos\Delete.cshtml" />
+    <Content Include="Views\Contratos\Details.cshtml" />
+    <Content Include="Views\Contratos\Edit.cshtml" />
+    <Content Include="Views\Contratos\Index.cshtml" />
+    <Content Include="Views\Empresa\Editar.cshtml" />
+    <Content Include="Views\Empresa\Index.cshtml" />
+    <Content Include="Views\Forma_Pago\Create.cshtml" />
+    <Content Include="Views\Forma_Pago\Delete.cshtml" />
+    <Content Include="Views\Forma_Pago\Details.cshtml" />
+    <Content Include="Views\Forma_Pago\Edit.cshtml" />
+    <Content Include="Views\Forma_Pago\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
