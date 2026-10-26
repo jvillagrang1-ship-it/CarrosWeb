@@ -1,0 +1,40 @@
+﻿@model IEnumerable<CarrosWeb.Models.Liquidacion>
+@{
+    ViewBag.Title = "Liquidaciones a consignantes";
+}
+
+<h2>Liquidaciones a consignantes</h2>
+
+<table class="table table-striped">
+    <tr>
+        <th>Venta</th>
+        <th>Consignante</th>
+        <th>Monto</th>
+        <th>Estado</th>
+        <th>Fecha de pago</th>
+        <th></th>
+    </tr>
+@foreach (var item in Model)
+{
+    <tr>
+        <td>@Html.ActionLink("#" + item.id_venta, "Details", "Ventas", new { id = item.id_venta }, null)</td>
+        <td>@(item.Venta?.Vehiculo?.Contrato?.Consignante?.nombre)</td>
+        <td>Q @((item.monto_liquidado ?? 0).ToString("N2"))</td>
+        <td>
+            <span class="badge @(item.estado == "Pagada" ? "bg-success" : "bg-warning text-dark")">@item.estado</span>
+        </td>
+        <td>@(item.fecha_pago?.ToString("dd/MM/yyyy"))</td>
+        <td>
+            @if (item.estado == "Pendiente" && CarrosWeb.Infraestructura.SesionActual.NombreRol == "Administrador")
+            {
+                using (Html.BeginForm("MarcarPagada", "Liquidaciones", FormMethod.Post, new { @class = "d-inline" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="id" value="@item.id_liquidacion" />
+                    <button type="submit" class="btn btn-sm btn-success">Marcar pagada</button>
+                }
+            }
+        </td>
+    </tr>
+}
+</table>

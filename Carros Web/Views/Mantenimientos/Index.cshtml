@@ -1,0 +1,70 @@
+﻿@using System.Linq
+@model IEnumerable<CarrosWeb.Models.Mantenimiento>
+@{
+    ViewBag.Title = "Mantenimientos";
+    string estadoSel = (string)ViewBag.estado;
+    Func<string, string> activa = e => (estadoSel ?? "") == e ? "activa" : "";
+}
+
+<div class="barra-acciones">
+    <div>
+        <h2 class="titulo-seccion" style="margin-bottom:4px">Mantenimientos (taller)</h2>
+        <p class="texto-tenue" style="margin-top:0">@Model.Count() trabajo(s) @(estadoSel != null ? "— " + estadoSel : "")</p>
+    </div>
+    <div>
+        @Html.ActionLink("Talleres", "Index", "Tallers", null, new { @class = "enlace-fila" })
+        @Html.ActionLink("+ Ingresar vehículo a taller", "Create", null, new { @class = "boton boton--primario", style = "display:inline-block;text-decoration:none;text-align:center" })
+    </div>
+</div>
+
+<div class="pestanas">
+    @Html.ActionLink("Todos", "Index", null, new { @class = activa("") })
+    @Html.ActionLink("En proceso", "Index", new { estado = "En proceso" }, new { @class = activa("En proceso") })
+    @Html.ActionLink("En revisión", "Index", new { estado = "En revisión" }, new { @class = activa("En revisión") })
+    @Html.ActionLink("Finalizado", "Index", new { estado = "Finalizado" }, new { @class = activa("Finalizado") })
+</div>
+
+<table class="tabla-datos">
+    <thead><tr><th>Fecha</th><th>Vehículo</th><th>Origen</th><th>Tipo</th><th>Costo</th><th>Estado</th><th>Cobro</th><th></th></tr></thead>
+    <tbody>
+        @foreach (var m in Model)
+        {
+            string clase = m.estado == "Finalizado" ? "etiqueta--disponible" : m.estado == "En revisión" ? "etiqueta--mantenimiento" : "etiqueta--pendiente";
+            <tr>
+                <td>@(m.fecha?.ToString("dd/MM/yyyy"))</td>
+                <td>@(m.Vehiculo != null ? m.Vehiculo.placa + " - " + m.Vehiculo.modelo : m.marca_modelo_ingresado + " (" + m.placa_ingresada + ")")</td>
+                <td>
+                    @if (m.Vehiculo != null)
+                    {
+                        <span class="etiqueta etiqueta--disponible">Inventario</span>
+                    }
+                    else
+                    {
+                        <span class="etiqueta etiqueta--mantenimiento">Externo</span>
+                    }
+                </td>
+                <td>@(m.Catalogo_TipoMantenimiento?.descripcion)</td>
+                <td>Q @((m.costo ?? 0).ToString("N2"))</td>
+                <td><span class="etiqueta @clase">@m.estado</span></td>
+                <td>
+                    @if (m.pagado)
+                    {
+                        <span class="etiqueta etiqueta--pagada">Cobrado</span>
+                    }
+                    else
+                    {
+                        <span class="etiqueta etiqueta--pendiente">Pendiente</span>
+                    }
+                </td>
+                <td style="white-space:nowrap">
+                    @Html.ActionLink("Ver", "Details", new { id = m.id_mantenimiento }, new { @class = "enlace-fila" })
+                    @Html.ActionLink("Editar", "Edit", new { id = m.id_mantenimiento }, new { @class = "enlace-fila" })
+                </td>
+            </tr>
+        }
+        @if (!Model.Any())
+        {
+            <tr><td colspan="8" class="texto-tenue">No hay mantenimientos con ese filtro.</td></tr>
+        }
+    </tbody>
+</table>

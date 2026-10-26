@@ -1,0 +1,31 @@
+﻿@using System.Linq
+@model IEnumerable<CarrosWeb.Models.Vehiculo>
+@{
+    ViewBag.Title = "Inventario disponible";
+}
+
+@Html.Partial("_TabsReportes")
+
+<h2 class="titulo-seccion">Inventario disponible</h2>
+<p class="texto-tenue">@Model.Count() vehículo(s) listos para vender.</p>
+
+<table class="tabla-datos">
+    <thead><tr><th>Placa</th><th>Marca / Modelo</th><th>Tipo</th><th>Año</th><th>Km</th><th>Consignante</th></tr></thead>
+    <tbody>
+        @foreach (var v in Model)
+        {
+            <tr>
+                <td>@v.placa</td>
+                <td>@(v.Catalogo_Marca?.descripcion) @v.modelo</td>
+                <td>@(v.Catalogo_TipoVehiculo?.descripcion)</td>
+                <td>@v.año</td>
+                <td>@((v.kilometraje ?? 0).ToString("N0"))</td>
+                <td>@(v.Contrato?.Consignante?.nombre)</td>
+            </tr>
+        }
+        @if (!Model.Any())
+        {
+            <tr><td colspan="6" class="texto-tenue">No hay vehículos disponibles.</td></tr>
+        }
+    </tbody>
+</table>

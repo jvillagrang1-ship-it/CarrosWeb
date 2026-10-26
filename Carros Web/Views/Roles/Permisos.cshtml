@@ -1,0 +1,44 @@
+﻿@using System.Linq
+@using System.Collections.Generic
+@model CarrosWeb.Models.Rol
+@{
+    ViewBag.Title = "Permisos";
+    var asignados = (List<string>)ViewBag.PermisosAsignados;
+    var roles = (List<CarrosWeb.Models.Rol>)ViewBag.Roles;
+}
+
+<h2 class="titulo-seccion">Permisos por rol</h2>
+<p class="texto-tenue">Marca a qué módulos tiene acceso cada rol. Los cambios se aplican la próxima vez que esa persona inicie sesión (o si ya está adentro, la próxima vez que cierre y vuelva a entrar).</p>
+
+<div class="pestanas">
+    @foreach (var r in roles)
+    {
+        @Html.ActionLink(r.nombre_rol, "Permisos", new { id = r.id_rol }, new { @class = r.id_rol == Model.id_rol ? "activa" : "" })
+    }
+    @Html.ActionLink("+ Nuevo rol", "Create")
+</div>
+
+<div class="panel" style="max-width:520px">
+    @using (Html.BeginForm("Permisos", "Roles", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <input type="hidden" name="id" value="@Model.id_rol" />
+
+        foreach (var modulo in ((string[])ViewBag.Modulos).OrderBy(m => m))
+        {
+            <label style="display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid #eef1f7;font-weight:400;font-size:14px;color:#10233e">
+                <input type="checkbox" name="modulosSeleccionados" value="@modulo"
+                       @(asignados.Contains(modulo) ? "checked" : "") style="width:16px;height:16px;max-width:none" />
+                @modulo
+            </label>
+        }
+
+        <button type="submit" class="boton boton--primario" style="max-width:220px;margin-top:16px">Guardar permisos</button>
+    }
+</div>
+
+<p class="texto-tenue" style="margin-top:16px">
+    El rol <strong>Administrador</strong> siempre tiene acceso completo a todo el sistema,
+    aunque aquí le quites algún permiso — es la protección para que nunca te quedes
+    bloqueado por accidente.
+</p>

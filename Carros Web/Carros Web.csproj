@@ -352,6 +352,27 @@
     <Content Include="Views\Forma_Pago\Details.cshtml" />
     <Content Include="Views\Forma_Pago\Edit.cshtml" />
     <Content Include="Views\Forma_Pago\Index.cshtml" />
+    <Content Include="Views\Liquidaciones\Index.cshtml" />
+    <Content Include="Views\Mantenimientos\Cobrar.cshtml" />
+    <Content Include="Views\Mantenimientos\Comprobante.cshtml" />
+    <Content Include="Views\Mantenimientos\Create.cshtml" />
+    <Content Include="Views\Mantenimientos\Delete.cshtml" />
+    <Content Include="Views\Mantenimientos\Details.cshtml" />
+    <Content Include="Views\Mantenimientos\Edit.cshtml" />
+    <Content Include="Views\Mantenimientos\Index.cshtml" />
+    <Content Include="Views\Reportes\Index.cshtml" />
+    <Content Include="Views\Reportes\Inventario.cshtml" />
+    <Content Include="Views\Reportes\Liquidaciones.cshtml" />
+    <Content Include="Views\Reportes\MantenimientosCobrados.cshtml" />
+    <Content Include="Views\Reportes\VentasComisiones.cshtml" />
+    <Content Include="Views\Roles\Create.cshtml" />
+    <Content Include="Views\Roles\Index.cshtml" />
+    <Content Include="Views\Roles\Permisos.cshtml" />
+    <Content Include="Views\Tallers\Create.cshtml" />
+    <Content Include="Views\Tallers\Delete.cshtml" />
+    <Content Include="Views\Tallers\Details.cshtml" />
+    <Content Include="Views\Tallers\Edit.cshtml" />
+    <Content Include="Views\Tallers\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

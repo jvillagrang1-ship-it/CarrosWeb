@@ -1,0 +1,51 @@
+﻿@model CarrosWeb.Models.Mantenimiento
+@{
+    ViewBag.Title = "Comprobante de cobro";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Comprobante de cobro #@Model.id_mantenimiento</title>
+    <link href="@Url.Content("~/Content/Concesionaria.css?v=3")" rel="stylesheet" />
+</head>
+<body class="pagina-comprobante">
+    <div class="comprobante">
+        <h1>🔧 Comprobante de cobro — Taller</h1>
+        <p class="texto-tenue" style="margin-top:0">Mantenimiento #@Model.id_mantenimiento — @(Model.fecha_pago?.ToString("dd/MM/yyyy HH:mm"))</p>
+        <table>
+            <tr>
+                <td>Vehículo</td>
+                <td>
+                    @if (Model.Vehiculo != null)
+                    {
+                        <text>@(Model.Vehiculo.Catalogo_Marca?.descripcion) @Model.Vehiculo.modelo (@Model.Vehiculo.placa)</text>
+                    }
+                    else
+                    {
+                        <text>@Model.marca_modelo_ingresado (@Model.placa_ingresada)</text>
+                    }
+                </td>
+            </tr>
+            @if (Model.Vehiculo == null)
+            {
+                <tr><td>Propietario</td><td>@Model.propietario_nombre</td></tr>
+            }
+            <tr><td>Servicio realizado</td><td>@(Model.Catalogo_TipoMantenimiento?.descripcion)</td></tr>
+            @if (Model.Taller != null)
+            {
+                <tr><td>Taller</td><td>@Model.Taller.nombre</td></tr>
+            }
+            <tr><td>Forma de pago</td><td>@(Model.Forma_Pago?.descripcion)</td></tr>
+            <tr><td>Cobrado por</td><td>@(Model.Usuario?.nombre)</td></tr>
+            <tr><td>Total cobrado</td><td class="total">Q @((Model.costo ?? 0).ToString("N2"))</td></tr>
+        </table>
+        <p class="no-imprimir" style="margin-top:24px">
+            <button onclick="window.print()" class="boton boton--primario" style="max-width:160px">Imprimir</button>
+            @Html.ActionLink("Volver a mantenimientos", "Index", "Mantenimientos", null, new { style = "margin-left:12px" })
+        </p>
+    </div>
+</body>
+</html>
