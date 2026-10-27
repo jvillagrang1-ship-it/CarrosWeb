@@ -1,16 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\AL3J4\\source\\repos\\Carros Web\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{A8889CA6-249D-4A93-AF3C-387E6BE85167}|Carros Web\\Carros Web.csproj|c:\\users\\al3j4\\source\\repos\\carros web\\carros web\\views\\mantenimientos\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A8889CA6-249D-4A93-AF3C-387E6BE85167}|Carros Web\\Carros Web.csproj|solutionrelative:carros web\\views\\mantenimientos\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A8889CA6-249D-4A93-AF3C-387E6BE85167}|Carros Web\\Carros Web.csproj|c:\\users\\al3j4\\source\\repos\\carros web\\carros web\\views\\mantenimientos\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A8889CA6-249D-4A93-AF3C-387E6BE85167}|Carros Web\\Carros Web.csproj|solutionrelative:carros web\\views\\mantenimientos\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -18,37 +9,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Edit.cshtml",
-              "DocumentMoniker": "C:\\Users\\AL3J4\\source\\repos\\Carros Web\\Carros Web\\Views\\Mantenimientos\\Edit.cshtml",
-              "RelativeDocumentMoniker": "Carros Web\\Views\\Mantenimientos\\Edit.cshtml",
-              "ToolTip": "C:\\Users\\AL3J4\\source\\repos\\Carros Web\\Carros Web\\Views\\Mantenimientos\\Edit.cshtml",
-              "RelativeToolTip": "Carros Web\\Views\\Mantenimientos\\Edit.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-10-26T05:40:28.714Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Users\\AL3J4\\source\\repos\\Carros Web\\Carros Web\\Views\\Mantenimientos\\Create.cshtml",
-              "RelativeDocumentMoniker": "Carros Web\\Views\\Mantenimientos\\Create.cshtml",
-              "ToolTip": "C:\\Users\\AL3J4\\source\\repos\\Carros Web\\Carros Web\\Views\\Mantenimientos\\Create.cshtml",
-              "RelativeToolTip": "Carros Web\\Views\\Mantenimientos\\Create.cshtml",
-              "ViewState": "AgIAACoAAAAAAAAAAAAAADcAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-10-26T05:38:21.455Z",
-              "EditorCaption": ""
             }
           ]
         }

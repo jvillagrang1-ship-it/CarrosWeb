@@ -3,7 +3,7 @@
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>C:\Users\AL3J4\OneDrive\Desktop\CarrosApp</_PublishTargetUrl>
-    <History>True|2026-10-26T05:46:01.4718756Z||;</History>
+    <History>True|2026-10-27T03:06:21.8675728Z||;True|2026-10-26T16:54:29.0726503-06:00||;True|2026-10-25T23:46:01.4718756-06:00||;</History>
     <LastFailureDetails />
   </PropertyGroup>
   <ItemGroup>
@@ -14,10 +14,10 @@
       <publishTime>09/10/2013 16:29:20</publishTime>
     </File>
     <File Include="bin/Carros Web.dll">
-      <publishTime>10/25/2026 23:45:59</publishTime>
+      <publishTime>10/26/2026 21:06:20</publishTime>
     </File>
     <File Include="bin/Carros Web.pdb">
-      <publishTime>10/25/2026 23:45:59</publishTime>
+      <publishTime>10/26/2026 21:06:20</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>04/20/2026 17:50:10</publishTime>
@@ -335,76 +335,79 @@
       <publishTime>10/18/2026 01:19:38</publishTime>
     </File>
     <File Include="Models/Model1.edmx.diagram">
-      <publishTime>10/18/2026 21:59:42</publishTime>
+      <publishTime>10/26/2026 20:15:13</publishTime>
     </File>
     <File Include="Scripts/bootstrap.bundle.js">
-      <publishTime>10/18/2026 01:19:42</publishTime>
+      <publishTime>10/26/2026 16:53:08</publishTime>
     </File>
     <File Include="Scripts/bootstrap.bundle.js.map">
-      <publishTime>10/18/2026 01:19:42</publishTime>
+      <publishTime>10/26/2026 16:53:08</publishTime>
     </File>
     <File Include="Scripts/bootstrap.bundle.min.js">
-      <publishTime>10/18/2026 01:19:42</publishTime>
+      <publishTime>10/26/2026 16:53:08</publishTime>
     </File>
     <File Include="Scripts/bootstrap.bundle.min.js.map">
-      <publishTime>10/18/2026 01:19:42</publishTime>
+      <publishTime>10/26/2026 16:53:08</publishTime>
     </File>
     <File Include="Scripts/bootstrap.esm.js">
-      <publishTime>10/18/2026 01:19:42</publishTime>
+      <publishTime>10/26/2026 16:53:08</publishTime>
     </File>
     <File Include="Scripts/bootstrap.esm.js.map">
-      <publishTime>10/18/2026 01:19:42</publishTime>
+      <publishTime>10/26/2026 16:53:08</publishTime>
     </File>
     <File Include="Scripts/bootstrap.esm.min.js">
-      <publishTime>10/18/2026 01:19:42</publishTime>
+      <publishTime>10/26/2026 16:53:08</publishTime>
     </File>
     <File Include="Scripts/bootstrap.esm.min.js.map">
-      <publishTime>10/18/2026 01:19:42</publishTime>
+      <publishTime>10/26/2026 16:53:08</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
-      <publishTime>10/18/2026 01:19:42</publishTime>
+      <publishTime>10/26/2026 16:53:08</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js.map">
-      <publishTime>10/18/2026 01:19:42</publishTime>
+      <publishTime>10/26/2026 16:53:08</publishTime>
     </File>
     <File Include="Scripts/bootstrap.min.js">
-      <publishTime>10/18/2026 01:19:42</publishTime>
+      <publishTime>10/26/2026 16:53:08</publishTime>
     </File>
     <File Include="Scripts/bootstrap.min.js.map">
-      <publishTime>10/18/2026 01:19:42</publishTime>
+      <publishTime>10/26/2026 16:53:08</publishTime>
     </File>
     <File Include="Scripts/jquery-3.7.0.js">
-      <publishTime>10/18/2026 01:19:43</publishTime>
+      <publishTime>10/26/2026 16:53:08</publishTime>
     </File>
     <File Include="Scripts/jquery-3.7.0.min.js">
-      <publishTime>10/18/2026 01:19:43</publishTime>
+      <publishTime>10/26/2026 16:53:08</publishTime>
     </File>
     <File Include="Scripts/jquery-3.7.0.min.map">
-      <publishTime>10/18/2026 01:19:43</publishTime>
+      <publishTime>10/26/2026 16:53:08</publishTime>
     </File>
     <File Include="Scripts/jquery-3.7.0.slim.js">
-      <publishTime>10/18/2026 01:19:43</publishTime>
+      <publishTime>10/26/2026 16:53:08</publishTime>
     </File>
     <File Include="Scripts/jquery-3.7.0.slim.min.js">
-      <publishTime>10/18/2026 01:19:43</publishTime>
+      <publishTime>10/26/2026 16:53:08</publishTime>
     </File>
     <File Include="Scripts/jquery-3.7.0.slim.min.map">
-      <publishTime>10/18/2026 01:19:43</publishTime>
+      <publishTime>10/26/2026 16:53:08</publishTime>
     </File>
     <File Include="Scripts/jquery.validate.js">
-      <publishTime>10/18/2026 01:19:48</publishTime>
+      <publishTime>10/26/2026 16:53:08</publishTime>
     </File>
     <File Include="Scripts/jquery.validate.min.js">
-      <publishTime>10/18/2026 01:19:48</publishTime>
+      <publishTime>10/26/2026 16:53:08</publishTime>
     </File>
     <File Include="Scripts/jquery.validate.unobtrusive.js">
-      <publishTime>10/18/2026 01:19:48</publishTime>
+      <publishTime>10/26/2026 16:53:08</publishTime>
     </File>
     <File Include="Scripts/jquery.validate.unobtrusive.min.js">
-      <publishTime>10/18/2026 01:19:48</publishTime>
+      <publishTime>10/26/2026 16:53:08</publishTime>
     </File>
     <File Include="Scripts/modernizr-2.8.3.js">
-      <publishTime>10/18/2026 01:19:47</publishTime>
+      <publishTime>10/26/2026 16:53:08</publishTime>
+    </File>
+    <File Include="Scripts/site.js">
+      <publishTime>10/26/2026 16:53:08</publishTime>
     </File>
     <File Include="Views/Bitacora/Index.cshtml">
       <publishTime>10/25/2026 21:20:51</publishTime>
@@ -560,7 +563,7 @@
       <publishTime>10/25/2026 21:26:37</publishTime>
     </File>
     <File Include="Views/Mantenimientos/Create.cshtml">
-      <publishTime>10/25/2026 23:39:19</publishTime>
+      <publishTime>10/26/2026 20:22:52</publishTime>
     </File>
     <File Include="Views/Mantenimientos/Delete.cshtml">
       <publishTime>10/25/2026 21:26:51</publishTime>
@@ -572,7 +575,7 @@
       <publishTime>10/25/2026 23:41:25</publishTime>
     </File>
     <File Include="Views/Mantenimientos/Index.cshtml">
-      <publishTime>10/25/2026 23:34:38</publishTime>
+      <publishTime>10/26/2026 20:31:56</publishTime>
     </File>
     <File Include="Views/Reportes/Index.cshtml">
       <publishTime>10/25/2026 21:06:49</publishTime>
@@ -653,7 +656,7 @@
       <publishTime>10/25/2026 21:30:08</publishTime>
     </File>
     <File Include="Views/Ventas/Create.cshtml">
-      <publishTime>10/25/2026 21:18:00</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Views/Ventas/Details.cshtml">
       <publishTime>10/25/2026 21:30:17</publishTime>
@@ -668,7 +671,7 @@
       <publishTime>10/18/2026 01:19:38</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>10/25/2026 23:46:00</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
   </ItemGroup>
 </Project>

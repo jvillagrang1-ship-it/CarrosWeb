@@ -8,10 +8,11 @@
 
 <div class="barra-acciones">
     <div>
-        <h2 class="titulo-seccion" style="margin-bottom:4px">Mantenimientos</h2>
+        <h2 class="titulo-seccion" style="margin-bottom:4px">Mantenimientos </h2>
         <p class="texto-tenue" style="margin-top:0">@Model.Count() trabajo(s) @(estadoSel != null ? "— " + estadoSel : "")</p>
     </div>
     <div>
+       
         @Html.ActionLink("+ Ingresar vehículo a taller", "Create", null, new { @class = "boton boton--primario", style = "display:inline-block;text-decoration:none;text-align:center" })
     </div>
 </div>

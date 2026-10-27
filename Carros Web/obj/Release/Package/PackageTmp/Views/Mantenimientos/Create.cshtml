@@ -29,7 +29,7 @@
         </div>
         <div>
             <label>Marca / modelo</label>
-            <input type="text" name="marca_modelo_ingresado" value="@(Model?.marca_modelo_ingresado)"/>
+            <input type="text" name="marca_modelo_ingresado" value="@(Model?.marca_modelo_ingresado)" placeholder="Ej. Toyota Corolla 2018" />
         </div>
         <div>
             <label>Nombre del propietario</label>
@@ -47,6 +47,10 @@
         <div>
             <label>Tipo de mantenimiento</label>
             @Html.DropDownList("id_tipo_mantenimiento", null, "-- Selecciona --", new { required = "required" })
+        </div>
+        <div>
+            <label>Taller</label>
+            @Html.DropDownList("id_taller", null, "-- Selecciona --")
         </div>
         <div>
             <label>Costo estimado (Q)</label>
