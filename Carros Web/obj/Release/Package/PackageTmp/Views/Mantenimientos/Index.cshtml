@@ -12,7 +12,7 @@
         <p class="texto-tenue" style="margin-top:0">@Model.Count() trabajo(s) @(estadoSel != null ? "— " + estadoSel : "")</p>
     </div>
     <div>
-       
+        @Html.ActionLink("Talleres", "Index", "Tallers", null, new { @class = "enlace-fila" })
         @Html.ActionLink("+ Ingresar vehículo a taller", "Create", null, new { @class = "boton boton--primario", style = "display:inline-block;text-decoration:none;text-align:center" })
     </div>
 </div>
